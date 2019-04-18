@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:id="add_paciente" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxclinic.FXMLAddPacienteController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="300.0" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="331.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <GridPane fx:id="profile" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="img_profile" fitHeight="250.0" fitWidth="250.0" onMouseClicked="#cargarImagen" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@img/fotoLogin.png" />
+               </image>
+            </ImageView>
+         </children>
+      </GridPane>
+      <GridPane style="-fx-background-color: #EDEDED; -fx-background-radius: 20px;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="190.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="field_nuevo_paciente_nom" style="-fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin></TextField>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Consiente fotografia:" GridPane.rowIndex="4">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Identificacion:" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono:" GridPane.rowIndex="2">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:" GridPane.rowIndex="1">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Text>
+            <TextField fx:id="field_nuevo_paciente_apellidos" style="-fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="field_nuevo_paciente_nom_identificacion" style="-fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets right="5.0" />
+               </GridPane.margin></TextField>
+            <CheckBox fx:id="chek_nuevo_paciente" alignment="CENTER" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </CheckBox>
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="170.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="field_nuevo_paciente_tel" style="-fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="search_components" stylesheets="@style.css">
+                     <GridPane.margin>
+                        <Insets right="5.0" />
+                     </GridPane.margin>
+                  </TextField>
+               </children>
+            </GridPane>
+         </children>
+         <GridPane.margin>
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+      </GridPane>
+      <GridPane fx:id="col" maxHeight="1.7976931348623157E308" minHeight="-Infinity" prefHeight="50.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="button_add_paciente" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addPaciente" style="-fx-background-color: white; -fx-background-radius: 100px; -fx-border-color: #4176F1; -fx-border-radius: 100px;" styleClass="boton_add" stylesheets="@style.css" text="Añadir" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin></Button>
+            <Button fx:id="button_cancelar_ap" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cerrarVentana" style="-fx-border-color: #4176F1; -fx-background-color: white; -fx-border-radius: 100px; -fx-background-radius: 100px;" styleClass="boton_add" stylesheets="@style.css" text="Cancelar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="Andalus" size="20.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin></Button>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </GridPane>
+   </children>
+</GridPane>

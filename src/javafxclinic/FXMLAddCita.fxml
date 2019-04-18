@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxclinic.FXMLAddCitaController">
+  <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="393.0" minHeight="10.0" prefHeight="393.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane style="-fx-background-color: white;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Elige al paciente:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <ChoiceBox fx:id="cb_pacientes" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-background-color: white; -fx-border-radius: 50px;" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <styleClass>
+                        <String fx:value="photo_selector" />
+                        <String fx:value="search_components" />
+                     </styleClass>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </ChoiceBox>
+               </children>
+            </GridPane>
+            <GridPane style="-fx-background-color: white;" GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Elige al doctor:" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Andalus" size="20.0" />
+                     </font>
+                  </Text>
+                  <ChoiceBox fx:id="cb_doctores" maxWidth="1.7976931348623157E308" prefWidth="150.0" style="-fx-background-color: white; -fx-border-radius: 50px;" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.valignment="CENTER">
+                     <styleClass>
+                        <String fx:value="search_components" />
+                        <String fx:value="photo_selector" />
+                     </styleClass>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </ChoiceBox>
+               </children>
+            </GridPane>
+      <GridPane fx:id="calendario" GridPane.columnSpan="2" GridPane.rowIndex="1">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <GridPane GridPane.columnSpan="2" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora inicio:" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora final:" GridPane.rowIndex="1" />
+            <Label fx:id="label_hora_ini" text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="label_hora_fin" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora cita:" GridPane.columnIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minutos cita:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="hora" GridPane.columnIndex="3" />
+            <TextField fx:id="minutos" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="crearCitaButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#crearCita" text="Crear" GridPane.columnIndex="4" GridPane.rowSpan="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+         </children>
+</GridPane>

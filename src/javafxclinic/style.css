@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04-abr-2019, 16:25:03
+    Author     : vlama
+*/
+
+.boton_add {
+    -fx-border-width: 2px;
+}
+
+.boton_add:hover {
+    -fx-border-width: 3px;
+}
+
+.menu_button_color {
+    -fx-background-color: #7C9DEA;
+}
+
+.menu_button_color:hover {
+    -fx-background-color: #6990EB;
+}
+
+.search_components {
+    -fx-border-color: #004DFF;
+}
+
+.search_components:hover {
+    -fx-border-color: #0042DA;
+}
+
+.photo_selector {
+    -fx-background-color: white;
+}
+
+.photo_selector:hover {
+    -fx-background-color: #DCDCDC;
+}
+
+.main_buttons {
+    -fx-background-color:#26AFEA;
+    -fx-border-color: #0042DA;
+}
+.main_buttons:hover {
+    -fx-background-color:#00B2FF;
+    -fx-border-color: red;
+}
+
+.button_mostrar_info {
+    -fx-background-color: white;
+    -fx-background-radius: 80px;
+    -fx-border-color: #004DFF;
+    -fx-border-radius: 80px;
+}
+
+.button_mostrar_info:hover {
+    -fx-border-color: #0042DA;
+}
+
+.list-cell:cell-selection .list-cell:selected {
+    -fx-background-color: white;
+}
