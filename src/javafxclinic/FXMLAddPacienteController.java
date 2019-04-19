@@ -117,12 +117,14 @@ public class FXMLAddPacienteController implements Initializable {
 
     @FXML
     private void cargarImagen(MouseEvent event) {
-        FileChooser fc = new FileChooser();
-        File imagen = fc.showOpenDialog(null);
-        if(fc != null){
-            Image img = new Image(imagen.toURI().toString());
-            img_profile.imageProperty().setValue(img);
-        }
+        try{
+            FileChooser fc = new FileChooser();
+            File imagen = fc.showOpenDialog(null);
+            if(fc != null){
+                Image img = new Image(imagen.toURI().toString());
+                img_profile.imageProperty().setValue(img);
+            }
+        }catch(Exception e){System.err.println("Error en la carga de la imagen...");}  
     }
     
     public Patient getPatient(){

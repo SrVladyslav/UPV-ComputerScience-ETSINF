@@ -74,7 +74,9 @@ public class FXMLAddCitaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         //hago responsive el calendario
-        //datePicker
+        calendario.vgapProperty().addListener(a->{
+            datePicker.setMaxHeight(calendario.getHeight());
+        });
         bbdd =  ClinicDBAccess.getSingletonClinicDBAccess();
         ArrayList<String> pacientes_cb = new ArrayList<>();
         ArrayList<String> doctores = new ArrayList<>();
@@ -119,8 +121,8 @@ public class FXMLAddCitaController implements Initializable {
         d = bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex());
         ap = new Appointment(ldt,d,p);
         //comprobacion de si existe la cita
-        if(tiempo.getHour() >= bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex()).getVisitStartTime().getHour()
-                    && tiempo.getHour() <= bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex()).getVisitEndTime().getHour()){
+        if(true){//tiempo.getHour() >= bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex()).getVisitStartTime().getHour()
+                   // && tiempo.getHour() <= bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex()).getVisitEndTime().getHour()){
            
             
 

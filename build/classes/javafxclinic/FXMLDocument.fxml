@@ -100,57 +100,35 @@
             </GridPane>
          </children>
       </GridPane>
-      <GridPane fx:id="panel_home" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" visible="false" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <GridPane fx:id="panel_home" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="500.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="500.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="500.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="500.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="253.0" minHeight="10.0" prefHeight="180.0" vgrow="ALWAYS" />
-          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="280.0" valignment="CENTER" vgrow="ALWAYS" />
-            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="340.0" valignment="CENTER" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="383.0" valignment="CENTER" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="237.0" valignment="CENTER" vgrow="ALWAYS" />
         </rowConstraints>
          <children>
-            <ImageView fx:id="main_fondo_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-               <image>
-                  <Image url="@img/bg_main.jpg" />
-               </image>
-            </ImageView>
-            <Button fx:id="button_pacientes" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.6" styleClass="main_buttons" stylesheets="@style.css" text="Pacientes" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="150.0" right="5.0" top="50.0" />
-               </GridPane.margin>
+            <GridPane fx:id="grid_pane_landing_page" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <ImageView fx:id="main_fondo_img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+                     <image>
+                        <Image url="@img/medica.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </GridPane>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Servicios Médicos Avanzados" GridPane.columnSpan="2" GridPane.halignment="LEFT" GridPane.rowSpan="2" GridPane.valignment="CENTER">
                <font>
-                  <Font name="Andalus" size="70.0" />
-               </font>
-            </Button>
-            <Button fx:id="button_citas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.6" styleClass="main_buttons" stylesheets="@style.css" text="Citas" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-               <GridPane.margin>
-                  <Insets bottom="100.0" left="150.0" right="5.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Andalus" size="70.0" />
-               </font>
-            </Button>
-            <Button fx:id="button_medicos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.6" styleClass="main_buttons" stylesheets="@style.css" text="Médicos" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-               <font>
-                  <Font name="Andalus" size="70.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="5.0" right="150.0" top="50.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="button_salir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" opacity="0.6" styleClass="main_buttons" stylesheets="@style.css" text="Salir" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-               <GridPane.margin>
-                  <Insets bottom="100.0" left="5.0" right="150.0" top="5.0" />
-               </GridPane.margin>
-               <font>
-                  <Font name="Andalus" size="70.0" />
-               </font>
-            </Button>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Servicios Médicos Avanzados" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <font>
-                  <Font name="Andalus" size="90.0" />
+                  <Font name="Andalus" size="50.0" />
                </font>
                <fill>
                   <LinearGradient endX="1.0" endY="1.0" startX="0.4174757281553398">
@@ -161,6 +139,51 @@
                   </LinearGradient>
                </fill>
             </Text>
+            <GridPane GridPane.columnSpan="2" GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="button_pacientes" contentDisplay="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="main_buttons" stylesheets="@style.css" text="Pacientes" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Andalus" size="50.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button_citas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="main_buttons" stylesheets="@style.css" text="Citas" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Andalus" size="50.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="button_medicos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="main_buttons" stylesheets="@style.css" text="Médicos" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <font>
+                        <Font name="Andalus" size="50.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+                  <Button fx:id="button_salir" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="main_buttons" stylesheets="@style.css" text="Salir" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Andalus" size="50.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
          </children>
       </GridPane>
       <GridPane fx:id="panel_pacientes" maxHeight="1.7976931348623157E308" style="-fx-background-color: white;" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
@@ -373,7 +396,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <GridPane fx:id="panel_medicos" style="-fx-background-color: white;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <GridPane fx:id="panel_medicos" style="-fx-background-color: white;" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -663,7 +686,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <GridPane fx:id="panel_cabecera" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" style="-fx-background-color: #D4E1FF; -fx-border-color: white;" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <GridPane fx:id="panel_cabecera" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="100.0" style="-fx-background-color: #D4E1FF; -fx-border-color: white;" visible="false" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -676,7 +699,7 @@
          <children>
             <Button fx:id="button_go_medicos" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="menu_button_color" stylesheets="@style.css" text="Médicos" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="2.0" right="2.0" top="1.0" />
+                  <Insets left="2.0" right="2.0" />
                </GridPane.margin>
                <font>
                   <Font name="Andalus" size="40.0" />
@@ -684,7 +707,7 @@
             </Button>
             <Button fx:id="button_go_citas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="menu_button_color" stylesheets="@style.css" text="Citas" GridPane.columnIndex="3" GridPane.halignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="2.0" right="2.0" top="1.0" />
+                  <Insets left="2.0" />
                </GridPane.margin>
                <font>
                   <Font name="Andalus" size="40.0" />
@@ -692,7 +715,7 @@
             </Button>
             <Button fx:id="button_go_pacientes" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonAction" styleClass="menu_button_color" stylesheets="@style.css" text="Pacientes" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <GridPane.margin>
-                  <Insets bottom="5.0" left="2.0" right="2.0" top="1.0" />
+                  <Insets left="2.0" right="2.0" />
                </GridPane.margin>
                <font>
                   <Font name="Andalus" size="40.0" />

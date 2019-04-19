@@ -41,7 +41,7 @@ and open the template in the editor.
 }
 
 .main_buttons {
-    -fx-background-color:#26AFEA;
+    -fx-background-color:#7C9DEA;/*#26AFEA;*/
     -fx-border-color: #0042DA;
 }
 .main_buttons:hover {
@@ -61,5 +61,9 @@ and open the template in the editor.
 }
 
 .list-cell:cell-selection .list-cell:selected {
+    -fx-background-color: white;
+}
+
+.button_eliminar {
     -fx-background-color: white;
 }

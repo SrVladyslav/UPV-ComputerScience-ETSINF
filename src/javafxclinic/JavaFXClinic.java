@@ -13,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -31,6 +32,8 @@ public class JavaFXClinic extends Application {
         stage.setMinHeight(800);
         stage.setMinWidth(1100);
         stage.setScene(scene);
+        stage.setTitle("Servicios Medicos Avanzados VV");
+        try{stage.getIcons().add(new Image(getClass().getResourceAsStream("/javafxclinic/img/iconos/logo.png")));}catch(Exception e){}
         /*stage.setOnCloseRequest((WindowEvent e) -> {
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle(bbdd.getClinicName());

@@ -109,8 +109,6 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button button_panel_doctores_buscar1;
     @FXML
-    private TextField field_buscador1;
-    @FXML
     private ListView<Doctor> lista_doctores;
     private ArrayList<Doctor> lista_doctores_a;
     private ObservableList<Doctor> lista_doctores_o;
@@ -189,11 +187,16 @@ public class FXMLDocumentController implements Initializable {
     private GridPane panel_img_profile_paciente;
     @FXML
     private GridPane panel_profile_m;
+    @FXML
+    private GridPane grid_pane_landing_page;
+    @FXML
+    private TextField field_buscador_medicos;
     
     @FXML
     private void handleButtonAction(ActionEvent event){
        String id = ((Node)event.getSource()).getId();
        if(id.equals("button_pacientes")|| id.equals("button_go_pacientes")){
+           activarBoton(button_go_pacientes);
            panel_home.setVisible(false);
            panel_citas.setVisible(false);
            panel_medicos.setVisible(false);
@@ -248,6 +251,7 @@ public class FXMLDocumentController implements Initializable {
                 /*TODO**/
             }
         }else if(id.equals("button_go_citas") || id.equals("button_citas")){
+            activarBoton(button_go_citas);
             lista_pacientes_citas_o = FXCollections.observableList(lista_pacientes_a);
             lista_pacientes_citas.setItems(lista_pacientes_citas_o);
             panel_home.setVisible(false);
@@ -256,6 +260,7 @@ public class FXMLDocumentController implements Initializable {
             panel_cabecera.setVisible(true);
             panel_citas.setVisible(true);
         }else if(id.equals("button_go_medicos") || id.equals("button_medicos")){
+            activarBoton(button_go_medicos);
             panel_home.setVisible(false);
             panel_citas.setVisible(false);
             panel_pacientes.setVisible(false);
@@ -323,8 +328,8 @@ public class FXMLDocumentController implements Initializable {
         panel_medicos.setVisible(false);
         panel_home.setVisible(true);
         //img resizable
-        main_fondo_img.fitHeightProperty().bind(panel_home.heightProperty());
-        main_fondo_img.fitWidthProperty().bind(panel_home.widthProperty());
+        main_fondo_img.fitHeightProperty().bind(grid_pane_landing_page.heightProperty());
+        main_fondo_img.fitWidthProperty().bind(grid_pane_landing_page.widthProperty());
         //img del perfil del paciente resizable
         img_profile_paciente.fitHeightProperty().bind(panel_img_profile_paciente.heightProperty());
         img_profile_paciente.fitWidthProperty().bind(panel_img_profile_paciente.widthProperty());
@@ -478,10 +483,12 @@ public class FXMLDocumentController implements Initializable {
         Label cita = new Label("");
         Label fecha = new Label("");
         Pane pane = new Pane();
+        Doctor doctor;
         public PersonVerCitaListCell() {
             super();   
             hbox.setAlignment(Pos.CENTER);
-            cita.setStyle("");
+            verCita.setStyle("-fx-background-color: white;-fx-background-radius: 80px;-fx-border-color: #004DFF;-fx-border-radius: 80px;");
+            eliminar.setStyle("-fx-background-color: white;-fx-background-radius: 80px;-fx-border-color: red;-fx-border-radius: 80px;");
             cita.setMaxWidth(Region.USE_COMPUTED_SIZE);
             vbox.setStyle("-fx-border-width: 2px; -fx-border-color: blue;-fx-border-radius:50px;");
             vbox.setPadding(new Insets(10, 10, 10, 10));  
@@ -492,6 +499,17 @@ public class FXMLDocumentController implements Initializable {
                     if(this.isSelected()){
                         System.out.println("Mostrando Citas de: "+ lista_pacientes_citas.getSelectionModel().getSelectedItem().getName());
                         lista_citas_citas.getSelectionModel().getSelectedItem().getAppointmentDateTime().toString();
+                        
+                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FXMLMostrarInfoCita.fxml"));
+                        Parent root1 = (Parent) fxmlLoader.load();
+                        FXMLMostrarInfoCitaController controlador = fxmlLoader.<FXMLMostrarInfoCitaController>getController();
+                        Stage stage = new Stage();
+                        stage.setScene(new Scene(root1));
+                        stage.setTitle("Informacion de la cita");
+                        stage.initModality(Modality.APPLICATION_MODAL);
+                        controlador.setWindow((bbdd.getPatientAppointments(lista_pacientes_citas.getSelectionModel().getSelectedItem().getIdentifier()).get(lista_citas_citas.getSelectionModel().getSelectedIndex())));
+                        System.err.println(lista_pacientes_citas.getSelectionModel().getSelectedItem().getName());
+                        stage.showAndWait();
                     }else {System.out.println("Seleccionalo");}
                 }catch(Exception a){ System.err.println("UPS parece ser que hay un error aqui, tome, mirelo: " + a.toString());}
             });
@@ -499,10 +517,20 @@ public class FXMLDocumentController implements Initializable {
             eliminar.setOnAction(ee->{
                 try{
                     if(this.isSelected()){
-                        lista_citas_citas_o.remove(lista_citas_citas.getSelectionModel().getSelectedIndex());//elimino de la lista
-                        bbdd.getAppointments().remove(lista_citas_citas.getSelectionModel().getSelectedIndex());
-                        bbdd.getDoctorAppointments(lista_citas_citas.getSelectionModel().getSelectedItem().getDoctor().getIdentifier());
-                        bbdd.getPatientAppointments(lista_citas_citas.getSelectionModel().getSelectedItem().getPatient().getIdentifier());
+                        Alert alert = new Alert(AlertType.CONFIRMATION);
+                        alert.setTitle("Eliminar cita");
+                        alert.setHeaderText("Esta seguro que de quiere eliminarla?");
+                        alert.setContentText("Al aceptar, se perdera para la cita");
+                        Optional<ButtonType> result = alert.showAndWait();
+                        if (result.isPresent() && result.get() == ButtonType.OK){
+                            System.out.println("OK");
+                            lista_citas_citas_o.remove(lista_citas_citas.getSelectionModel().getSelectedIndex());//elimino de la lista
+                            bbdd.getAppointments().remove(lista_citas_citas.getSelectionModel().getSelectedIndex());
+                            bbdd.getDoctorAppointments(lista_citas_citas.getSelectionModel().getSelectedItem().getDoctor().getIdentifier());
+                            bbdd.getPatientAppointments(lista_citas_citas.getSelectionModel().getSelectedItem().getPatient().getIdentifier());
+                        } else {
+                            System.out.println("CANCEL");
+                        }
                     }else {System.out.println("Seleccionalo");}
                 }catch(Exception a){ System.err.println("UPS parece ser que hay un error aqui, tome, mirelo: " + a.toString());}
             });
@@ -629,7 +657,15 @@ public class FXMLDocumentController implements Initializable {
         tabla_jueves.setCellValueFactory(new PropertyValueFactory<Patient, String>("name"));
         tabla_citas.setItems(FXCollections.observableList(lista_pacientes_o));//citas
     }
-    
+    /**metodo que ambia de color al boton seleccionado**/
+    private void activarBoton(Button b){
+        //calcelo los colores de todos los botones
+        button_go_pacientes.setStyle("-fx-border-color:#7C9DEA; -fx-border-width:0px;");//-fx-background-color:#7C9DEA");
+        button_go_medicos.setStyle("-fx-border-color: #7C9DEA; -fx-border-width:0px;");//-fx-background-color:#7C9DEA");
+        button_go_citas.setStyle("-fx-border-color:#7C9DEA; -fx-border-width:0px;");//-fx-background-color: #7C9DEA");
+        //le pongo el color de activo al boton seleccionado
+        b.setStyle("-fx-border-color:#004DFF; -fx-border-width:4px;");//-fx-background-color:white;");
+    }
     /**Ver informacion del medico**/
     private void verInfoMedico(Doctor doctor){
         int i = lista_doctores.getSelectionModel().getSelectedIndex();
@@ -643,19 +679,19 @@ public class FXMLDocumentController implements Initializable {
             label_horafin_medico.setText(doctor.getVisitEndTime() +"");
             label_sala_medico.setText(doctor.getExaminationRoom().getIdentNumber() + "");
             ArrayList<Days> diasVisita = doctor.getVisitDays();
-            if(diasVisita.contains(Days.Monday)){label_lunes.setStyle("-fx-border-color: #32FF00");label_lunes.setStyle("-fx-border-width: 0px");}
+            if(diasVisita.contains(Days.Monday)){label_lunes.setStyle("-fx-border-color: #32FF00; -fx-border-width: 2px;");}
             else {label_lunes.setStyle("-fx-border-color: #960000");}
-            if(diasVisita.contains(Days.Tuesday)){label_martes.setStyle("-fx-border-color: #32FF00");label_martes.setStyle("-fx-border-width: 1px");}
+            if(diasVisita.contains(Days.Tuesday)){label_martes.setStyle("-fx-border-color: #32FF00;-fx-border-width: 2px;");}
             else {label_martes.setStyle("-fx-border-color: #960000");}
-            if(diasVisita.contains(Days.Wednesday)){label_miercoles.setStyle("-fx-border-color: #32FF00");label_miercoles.setStyle("-fx-border-width: 1px");}
+            if(diasVisita.contains(Days.Wednesday)){label_miercoles.setStyle("-fx-border-color: #32FF00;-fx-border-width: 2px;");}
             else {label_miercoles.setStyle("-fx-border-color: #960000");}
-            if(diasVisita.contains(Days.Thursday)){label_jueves.setStyle("-fx-border-color: #32FF00");label_jueves.setStyle("-fx-border-width: 1px");}
+            if(diasVisita.contains(Days.Thursday)){label_jueves.setStyle("-fx-border-color: #32FF00;-fx-border-width: 2px;");}
             else {label_jueves.setStyle("-fx-border-color: #960000");}
-            if(diasVisita.contains(Days.Friday)){label_viernes.setStyle("-fx-border-color: #32FF00");label_viernes.setStyle("-fx-border-width: 1px");}
+            if(diasVisita.contains(Days.Friday)){label_viernes.setStyle("-fx-border-color: #32FF00;-fx-border-width: 2px;");}
             else {label_viernes.setStyle("-fx-border-color: #960000");}
-            if(diasVisita.contains(Days.Saturday)){label_sabado.setStyle("-fx-border-color: #32FF00");label_sabado.setStyle("-fx-border-width: 1px");}
+            if(diasVisita.contains(Days.Saturday)){label_sabado.setStyle("-fx-border-color: #32FF00;-fx-border-width: 2px;");}
             else{label_sabado.setStyle("-fx-border-color: #960000");}
-            if(diasVisita.contains(Days.Sunday)){label_domingo.setStyle("-fx-border-color: #32FF00");label_domingo.setStyle("-fx-border-width: 1px");}
+            if(diasVisita.contains(Days.Sunday)){label_domingo.setStyle("-fx-border-color: #32FF00;-fx-border-width: 2px;");}
             else{label_domingo.setStyle("-fx-border-color: #960000");}
         }
     }
