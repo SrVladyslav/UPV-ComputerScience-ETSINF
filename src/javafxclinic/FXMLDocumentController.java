@@ -52,6 +52,7 @@ import javafx.scene.control.TextFormatter;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
@@ -407,7 +408,21 @@ public class FXMLDocumentController implements Initializable {
                 lista_citas_citas.setItems(lista_citas_citas_o);
                 bbdd.saveDB();
             }
-        }catch(Exception o){System.err.print(o.toString());}
+        }catch(Exception o){System.err.print(o.toString()); o.printStackTrace();}
+    }
+
+    @FXML
+    private void buscarCitas(KeyEvent event) {
+        if(!field_buscador_paciente_citas.getText().isEmpty()){
+                try{filtrarCitas(field_buscador_paciente_citas.getText());}catch(Exception e){System.out.println("Algo fallo");}
+                //filtrarPaciente(field_buscador.getText(), bbdd.getPatients());
+        }else{
+           // reloadList();
+           System.err.println("Error 1");
+            lista_pacientes_citas_o = FXCollections.observableArrayList(bbdd.getPatients());//porque tengo que hacer eso y no repinta solo?
+            lista_pacientes_citas.setItems(lista_pacientes_citas_o);
+            /*TODO**/
+        }
     }
     
     //creamos celda personalizada Paciente
@@ -601,8 +616,8 @@ public class FXMLDocumentController implements Initializable {
         lista_pacientes.setItems(lista_pacientes_o);
     }
 
-    /**Algoritmo del buscador**/
-    private void filtrar(String nombre){
+    /**Algoritmo del buscador filtrado por nombre y apellidos**/
+    /*private void filtrar(String nombre){
         try{
             System.out.print("Lista> ");
             ArrayList<Patient> personas = bbdd.getPatients();
@@ -638,7 +653,102 @@ public class FXMLDocumentController implements Initializable {
         }catch(Exception e){System.err.println("FUCKKK!!");}
         
         return false;
+    }*/
+    /**@param String paciente
+     *calcula la lista de pacientes en el buscador de pacientes
+     */
+    private void filtrar(String nombre){
+        try{
+            System.out.print("Lista> ");
+            ArrayList<Patient> personas = bbdd.getPatients();
+            List<Patient> solucion = new ArrayList<Patient>();
+            String[] noms = nombre.trim().split(" ");
+            if(noms.length > 0){//>=
+                for(int i = 0; i < personas.size(); i ++){
+                    for(int j = 0; j < noms.length; j ++){
+                        if(filtrarPersona(noms[j].trim().toLowerCase(), personas.get(i).getIdentifier().trim().toLowerCase())){
+                            solucion.add(personas.get(i));
+                            lista_pacientes_o = FXCollections.observableArrayList(solucion);
+                            lista_pacientes.setItems(lista_pacientes_o);
+                        }
+                    }
+                }
+            }else {
+                System.err.println("Error 2");
+            } 
+        }catch(Exception e){
+            System.out.print("Algo fallo, pero nada saldra mal :)");
+        } 
     }
+    /**@param String paciente
+     *calcula la lista de pacientes en el buscador de pacientes
+     */
+    private void filtrarDoctor(String nombre){
+        try{
+            System.out.print("Lista> ");
+            ArrayList<Patient> personas = bbdd.getPatients();
+            List<Patient> solucion = new ArrayList<Patient>();
+            String[] noms = nombre.trim().split(" ");
+            if(noms.length > 0){//>=
+                for(int i = 0; i < personas.size(); i ++){
+                    for(int j = 0; j < noms.length; j ++){
+                        if(filtrarPersona(noms[j].trim().toLowerCase(), personas.get(i).getIdentifier().trim().toLowerCase())){
+                            solucion.add(personas.get(i));
+                            lista_pacientes_o = FXCollections.observableArrayList(solucion);
+                            lista_pacientes.setItems(lista_pacientes_o);
+                        }
+                    }
+                }
+            }else {
+                System.err.println("Error 2");
+            } 
+        }catch(Exception e){
+            System.out.print("Algo fallo, pero nada saldra mal :)");
+        } 
+    }
+    /**@param String paciente
+     *calcula la lista de medico en el buscador de medico
+     */
+    private void filtrarCitas(String nombre){
+        try{
+            System.out.print("Lista> ");
+            ArrayList<Patient> personas = bbdd.getPatients();
+            List<Patient> solucion = new ArrayList<Patient>();
+            String[] noms = nombre.trim().split(" ");
+            if(noms.length > 0){//>=
+                for(int i = 0; i < personas.size(); i ++){
+                    for(int j = 0; j < noms.length; j ++){
+                        if(filtrarPersona(noms[j].trim().toLowerCase(), personas.get(i).getIdentifier().trim().toLowerCase())){
+                            System.err.println("Encontrado");
+                            lista_pacientes_citas_o = FXCollections.observableArrayList(solucion);
+                            lista_pacientes_citas.setItems(lista_pacientes_citas_o);
+                        }
+                    }
+                }
+            }else {
+                System.err.println("Error 2");
+            } 
+        }catch(Exception e){
+            System.out.print("Algo fallo, pero nada saldra mal :)");
+        } 
+    }
+    /**buscador por Identificacion
+     @param String field del buscador
+     @param String id del objetivo a buscar
+     @return Boolean solucion de si existe coincidencia o no**/
+    private  boolean filtrarPersona(String field, String id){
+        //encuentro apellidos
+        String[] terminos = field.trim().split(" ");
+        try {
+            for(int i = 0; i < terminos.length; i ++){//field
+                    if(terminos[i].equals(id)) return true;
+            }
+        }catch(Exception e){System.err.println("Algo ha ido mal!!");}
+        
+        return false;
+    }
+    
+    
     
     /**rellena la tabla de las citas de un medico en especial*/
     private void rellenaTablaCitas(Doctor doctor){

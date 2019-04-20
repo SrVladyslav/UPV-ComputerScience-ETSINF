@@ -85,7 +85,7 @@
                <font>
                   <Font name="Andalus" size="20.0" />
                </font></Label>
-            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: E4E4E4; -fx-border-width: 1px; -fx-border-color: gray; -fx-background-radius: 80px; -fx-border-radius: 0 0 0 80;" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="6" GridPane.valignment="CENTER">
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: E4E4E4; -fx-border-width: 1px; -fx-border-color: gray; -fx-background-radius: 80px; -fx-border-radius: 0 0 80 80;" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.rowSpan="6" GridPane.valignment="CENTER">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="199.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="201.0" />

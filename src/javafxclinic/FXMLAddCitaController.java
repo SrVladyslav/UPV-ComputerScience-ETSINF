@@ -74,9 +74,9 @@ public class FXMLAddCitaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         //hago responsive el calendario
-        calendario.vgapProperty().addListener(a->{
+        /*calendario.vgapProperty().addListener(a->{
             datePicker.setMaxHeight(calendario.getHeight());
-        });
+        });*/
         bbdd =  ClinicDBAccess.getSingletonClinicDBAccess();
         ArrayList<String> pacientes_cb = new ArrayList<>();
         ArrayList<String> doctores = new ArrayList<>();

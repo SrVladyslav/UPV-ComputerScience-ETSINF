@@ -106,8 +106,8 @@
             <Label fx:id="label_hora_fin" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora cita:" GridPane.columnIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minutos cita:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="hora" GridPane.columnIndex="3" />
-            <TextField fx:id="minutos" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <TextField fx:id="hora" style="-fx-border-radius: 80px; -fx-background-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="3" />
+            <TextField fx:id="minutos" style="-fx-border-radius: 80px; -fx-background-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button fx:id="crearCitaButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#crearCita" text="Crear" GridPane.columnIndex="4" GridPane.rowSpan="2">
                <GridPane.margin>
                   <Insets />

@@ -26,7 +26,7 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <GridPane fx:id="panel_citas" maxHeight="1.7976931348623157E308" style="-fx-background-color: white;" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <GridPane fx:id="panel_citas" maxHeight="1.7976931348623157E308" style="-fx-background-color: white;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -49,7 +49,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="field_buscador_paciente_citas" style="-fx-border-radius: 80px; -fx-background-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <TextField fx:id="field_buscador_paciente_citas" onKeyPressed="#buscarCitas" promptText="Introduzca el ID del paciente" style="-fx-border-radius: 80px; -fx-background-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
@@ -100,7 +100,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <GridPane fx:id="panel_home" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+      <GridPane fx:id="panel_home" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: white;" visible="false" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="500.0" />
             <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="10.0" prefWidth="500.0" />
