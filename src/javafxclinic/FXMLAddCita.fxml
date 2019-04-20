@@ -102,17 +102,32 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora inicio:" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora final:" GridPane.rowIndex="1" />
-            <Label fx:id="label_hora_ini" text="Label" GridPane.columnIndex="1" />
-            <Label fx:id="label_hora_fin" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="label_hora_ini" GridPane.columnIndex="1" />
+            <Label fx:id="label_hora_fin" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora cita:" GridPane.columnIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Minutos cita:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="hora" style="-fx-border-radius: 80px; -fx-background-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="3" />
-            <TextField fx:id="minutos" style="-fx-border-radius: 80px; -fx-background-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button fx:id="crearCitaButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#crearCita" text="Crear" GridPane.columnIndex="4" GridPane.rowSpan="2">
+            <TextField fx:id="hora" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin></TextField>
+            <TextField fx:id="minutos" promptText="Intervalos de 15 min" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin></TextField>
+            <Button fx:id="crearCitaButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#crearCita" stylesheets="@style.css" text="Crear" GridPane.columnIndex="4">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
+               <styleClass>
+                  <String fx:value="menu_button_color" />
+                  <String fx:value="search_components" />
+               </styleClass>
             </Button>
+            <Button fx:id="cancelarCitaButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cancelarCita" stylesheets="@style.css" text="Cancelar" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <styleClass>
+                  <String fx:value="menu_button_color" />
+                  <String fx:value="search_components" />
+               </styleClass></Button>
          </children>
       </GridPane>
          </children>

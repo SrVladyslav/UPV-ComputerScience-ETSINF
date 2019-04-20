@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="add_doctor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-border-color: #0042DA;; -fx-border-width: 2px;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxclinic.FXMLAnyadirDoctorController">
+<GridPane fx:id="add_doctor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxclinic.FXMLAñadirDoctorController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="300.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -28,7 +27,7 @@
     <RowConstraints minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <ImageView fx:id="img_profile" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#cargarImagen" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowSpan="4" GridPane.valignment="CENTER">
+      <ImageView fx:id="img_profile" accessibleText="Añadir imagen" fitHeight="150.0" fitWidth="200.0" onMouseClicked="#cargarImagen" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowSpan="4" GridPane.valignment="CENTER">
          <image>
             <Image url="@img/iconos/default.png" />
          </image></ImageView>
@@ -47,68 +46,47 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="field_nuevo_doctor_nom" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1">
+            <TextField fx:id="field_nuevo_doctor_nom" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></TextField>
-            <TextField fx:id="field_nuevo_doctor_apellidos" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="field_nuevo_doctor_tel" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField fx:id="field_nuevo_doctor_num_identificacion" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:" GridPane.valignment="CENTER">
+            <TextField fx:id="field_nuevo_doctor_apellidos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="field_nuevo_doctor_tel" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="field_nuevo_doctor_num_identificacion" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre:">
                <font>
                   <Font size="20.0" />
                </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Identificacion:" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Identificacion:" GridPane.rowIndex="3">
                <font>
                   <Font size="20.0" />
                </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono:" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Teléfono:" GridPane.rowIndex="2">
                <font>
                   <Font size="20.0" />
                </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos:" GridPane.rowIndex="1">
                <font>
                   <Font size="20.0" />
                </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Sala:" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nº Sala:" GridPane.rowIndex="6">
                <font>
                   <Font size="20.0" />
                </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora inicio (2dig.):" wrappingWidth="180.15625" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora inicio:" wrappingWidth="148.15625" GridPane.rowIndex="4">
                <font>
                   <Font size="20.0" />
                </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </GridPane.margin>
             </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora fin (2dig.):" wrappingWidth="148.15625" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Hora fin:" wrappingWidth="148.15625" GridPane.rowIndex="5">
                <font>
                   <Font size="20.0" />
                </font>
-               <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" top="10.0" />
-               </GridPane.margin>
             </Text>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
                <columnConstraints>
@@ -119,8 +97,8 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField fx:id="nuevo_hora_inicio" promptText="Hora" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" />
-                  <TextField fx:id="nuevo_min_inicio" promptText="Minutos" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" />
+                  <TextField fx:id="nuevo_hora_inicio" promptText="Hora" />
+                  <TextField fx:id="nuevo_min_inicio" promptText="Minutos" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -132,11 +110,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="nuevo_hora_fin" promptText="Hora" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" />
-                  <TextField fx:id="nuevo_min_fin" promptText="Minutos" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" />
+                  <TextField fx:id="nuevo_hora_fin" promptText="Hora" />
+                  <TextField fx:id="nuevo_min_fin" promptText="Minutos" GridPane.columnIndex="1" />
                </children>
             </GridPane>
-            <TextField fx:id="nuevo_num_sala" style="-fx-background-radius: 80px; -fx-border-radius: 80px;" styleClass="search_components" stylesheets="@style.css" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="nuevo_num_sala" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -151,18 +129,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="button_add_doctor" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addDoctor" style="-fx-background-color: #BDE2FF;" stylesheets="@style.css" text="Añadir" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <styleClass>
-                  <String fx:value="menu_button_color" />
-                  <String fx:value="search_components" />
-               </styleClass>
-               <GridPane.margin>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-               </GridPane.margin></Button>
-            <Button fx:id="button_cancelar_ad" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#cerrarVentana" style="-fx-background-color: white;" styleClass="search_components" stylesheets="@style.css" text="Cancelar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <GridPane.margin>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-               </GridPane.margin></Button>
+            <Button fx:id="button_add_doctor" mnemonicParsing="false" onAction="#addDoctor" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-border-color: #4176F1; -fx-border-radius: 20px;" styleClass="boton_add" text="Añadir" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="button_cancelar_ad" mnemonicParsing="false" onAction="#cerrarVentana" text="Cancelar" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
@@ -213,5 +181,6 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </GridPane>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir fotografia" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
    </children>
 </GridPane>

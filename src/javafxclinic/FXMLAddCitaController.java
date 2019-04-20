@@ -12,7 +12,6 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.Month;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,6 +19,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DateCell;
@@ -60,6 +60,8 @@ public class FXMLAddCitaController implements Initializable {
     private Label label_hora_fin;
     @FXML
     private TextField hora;
+    private boolean existe = false;
+    private boolean pulsadoCancelar = false;
     @FXML
     private TextField minutos;
     private Patient p;
@@ -120,41 +122,37 @@ public class FXMLAddCitaController implements Initializable {
         p = bbdd.getPatients().get(cb_pacientes.getSelectionModel().getSelectedIndex());
         d = bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex());
         ap = new Appointment(ldt,d,p);
-        //comprobacion de si existe la cita
-        if(true){//tiempo.getHour() >= bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex()).getVisitStartTime().getHour()
-                   // && tiempo.getHour() <= bbdd.getDoctors().get(cb_doctores.getSelectionModel().getSelectedIndex()).getVisitEndTime().getHour()){
-           
-            
-
-
-
-                                        //ACABAR LA COMPROBACION
-            
-            
-            
-            
-            
-            
-            for(int i = 0; i < bbdd.getPatientAppointments(p.getIdentifier()).size(); i ++){
-                if(!bbdd.getPatientAppointments(p.getIdentifier()).get(i).equals(ap)){
-                    //((Stage)crearCitaButton.getScene().getWindow()).close();
-                    guardar = true;
-                    System.err.println("----------CORRECTO----------");
-                }else {
-                    //hora.setStyle("-fx-background-color:#E25E5E;");
-                    System.err.println("Error con el tiempo");
+        //comprobacion de si existe la cita y es correcta
+        if(tiempo.getHour() >= 0 && tiempo.getHour() < 23 && tiempo.getMinute() >= 0 && tiempo.getMinute() < 59){
+            if(tiempo.isAfter(d.getVisitStartTime().minusMinutes(1)) && tiempo.isBefore(d.getVisitEndTime().plusMinutes(1))){
+                ArrayList<Appointment> Aa = bbdd.getDoctorAppointments(d.getIdentifier());
+                for(int i = 0; i < Aa.size() && !existe; i ++){
+                    Appointment a = Aa.get(i);
+                    if((a.getAppointmentDateTime().compareTo(ap.getAppointmentDateTime()) == 0) && a.getDoctor().equals(ap.getDoctor())){
+                        existe = true;
+                        //Alerta existe
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.setTitle("Operacion no posible");
+                        alert.setHeaderText("Atención!");
+                        alert.setContentText("La hora de la cita ya está cogida.Pruebe con otra");
+                        alert.showAndWait();
+                    }
                 }
-            }    
-        }else {
-            guardar = false;
-            hora.setStyle("-fx-background-color:#E25E5E;");
-            minutos.setStyle("-fx-background-color:#E25E5E;");
+
+
+                if(!existe){
+                    bbdd.getPatientAppointments(p.getIdentifier()).add(ap);
+                    bbdd.getAppointments().add(ap);
+                    bbdd.getDoctorAppointments(d.getIdentifier()).add(ap);
+                    ((Stage)crearCitaButton.getScene().getWindow()).close();
+                }
+
+            }else {
+                hora.setStyle("-fx-background-color:#E25E5E;");
+                minutos.setStyle("-fx-background-color:#E25E5E;"); 
+            }
         }
-        //ArrayList<Appointment> app = 
-        /*bbdd.getPatientAppointments(p.getIdentifier()).add(ap);
-        //app.add(ap);
-        System.err.println(ap.toString());
-        bbdd.saveDB();*/
+        //bbdd.saveDB();
     }
     public boolean guardar(){
         return guardar;
@@ -168,7 +166,16 @@ public class FXMLAddCitaController implements Initializable {
     public Doctor getMedico(){
         return d;
     }
+    public boolean getCancelar(){
+        return pulsadoCancelar;
+    }
+
      
+    @FXML
+    private void cancelarCita(ActionEvent event) {
+        pulsadoCancelar = true;
+        ((Stage)crearCitaButton.getScene().getWindow()).close();
+    }
     
     class DiaCelda extends DateCell {
         String newline = System.getProperty("line.separator");
@@ -183,43 +190,43 @@ public class FXMLAddCitaController implements Initializable {
             boolean cambiado = false;
             if (days.contains(Days.Monday) && item.getDayOfWeek() == DayOfWeek.MONDAY) {
                 this.setTextFill(Color.GREEN);
-                this.setText(this.getText()+"\rlibre");
+                this.setText(this.getText()+"\rtrabaja");
                 cambiado = true;
                 //this.setBackground("#A53737");
             }
             if (days.contains(Days.Thursday) && item.getDayOfWeek() == DayOfWeek.THURSDAY) {
                 this.setTextFill(Color.GREEN);
-                this.setText(this.getText()+"\rlibre");
+                this.setText(this.getText()+"\rtrabaja");
                 cambiado = true;
                 //this.setBackground("#A53737");
             }
             if (days.contains(Days.Sunday) && item.getDayOfWeek() == DayOfWeek.SUNDAY ) {
                 this.setTextFill(Color.GREEN);
-                this.setText(this.getText()+"\rlibre");
+                this.setText(this.getText()+"\rtrabaja");
                 cambiado = true;
                 //this.setBackground("#A53737");
             }
             if (days.contains(Days.Wednesday) && item.getDayOfWeek() == DayOfWeek.WEDNESDAY) {
                 this.setTextFill(Color.GREEN);
-                this.setText(this.getText()+"\rlibre");
+                this.setText(this.getText()+"\rtrabaja");
                 cambiado = true;
                 //this.setBackground("#A53737");
             }
             if (days.contains(Days.Tuesday) && item.getDayOfWeek() == DayOfWeek.TUESDAY) {
                 this.setTextFill(Color.GREEN);
-                this.setText(this.getText()+"\rlibre");
+                this.setText(this.getText()+"\rtrabaja");
                 cambiado = true;
                 //this.setBackground("#A53737");
             }
             if (days.contains(Days.Friday) && item.getDayOfWeek() == DayOfWeek.FRIDAY) {
                 this.setTextFill(Color.GREEN);
-                this.setText(this.getText()+"\rlibre");
+                this.setText(this.getText()+"\rtrabaja");
                 cambiado = true;
                 //this.setBackground("#A53737");
             }
             if (days.contains(Days.Saturday) && item.getDayOfWeek() == DayOfWeek.SATURDAY) {
                 this.setTextFill(Color.GREEN);
-                this.setText(this.getText()+"\rlibre");
+                this.setText(this.getText()+"\rtrabaja");
                 cambiado = true;
                 //this.setBackground("#A53737");
             }

@@ -49,11 +49,21 @@ public class FXMLMostrarInfoCitaController implements Initializable {
     private Label telefono_paciente;
     @FXML
     private Label id_paciente;
+    @FXML
+    private ImageView foto_paciente;
+    @FXML
+    private GridPane panel_doctor;
+    @FXML
+    private GridPane panel_paciente;
+    @FXML
+    private Label fecha_paciente;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        fotoCitasDoctor.fitHeightProperty().bind(verCitaPanelFoto.heightProperty());
-        fotoCitasDoctor.fitWidthProperty().bind(verCitaPanelFoto.widthProperty());
+        /*fotoCitasDoctor.fitHeightProperty().bind(panel_doctor.heightProperty());
+        fotoCitasDoctor.fitWidthProperty().bind(panel_doctor.widthProperty());
+        foto_paciente.fitHeightProperty().bind(panel_paciente.heightProperty());
+        foto_paciente.fitWidthProperty().bind(panel_paciente.widthProperty());*/
     }    
     
     public void setWindow(Appointment cita){
@@ -61,6 +71,7 @@ public class FXMLMostrarInfoCitaController implements Initializable {
         fotoCitasDoctor.setImage(cita.getDoctor().getPhoto());
         label_apellidos_doctor_cita.setText(cita.getDoctor().getSurname());
         label_fecha_cita.setText(toSpanish(cita.getAppointmentDay().name()));
+        fecha_paciente.setText("[" +cita.getAppointmentDateTime()+"]");
         label_nombre_paciente.setText(cita.getPatient().getName());
         label_apellidos_paciente.setText(cita.getPatient().getSurname());
         telefono_doctor.setText(cita.getDoctor().getTelephon());
@@ -68,7 +79,7 @@ public class FXMLMostrarInfoCitaController implements Initializable {
         telefono_paciente.setText(cita.getPatient().getTelephon());
         id_paciente.setText(cita.getPatient().getIdentifier());
         label_sala_consulta.setText(cita.getDoctor().getExaminationRoom().getIdentNumber()+"    ");
-        
+        foto_paciente.setImage(cita.getPatient().getPhoto());   
     }
     
     public String toSpanish(String str){

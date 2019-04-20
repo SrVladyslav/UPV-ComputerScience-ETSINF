@@ -33,7 +33,7 @@ import model.ExaminationRoom;
  *
  * @author V1ct0r
  */
-public class FXMLAnyadirDoctorController implements Initializable {
+public class FXMLAñadirDoctorController implements Initializable {
 
     @FXML
     private TextField nuevo_hora_inicio;
@@ -123,7 +123,7 @@ public class FXMLAnyadirDoctorController implements Initializable {
                 correcto = false;
                 field_nuevo_doctor_num_identificacion.setStyle("-fx-background-color:#E25E5E;");
             }
-            if(!Pattern.matches("[A-Z][a-z]*", field_nuevo_doctor_nom.getText())){
+            if(!Pattern.matches("[A-Z][a-z]+", field_nuevo_doctor_nom.getText())){
                 correcto = false;
                 field_nuevo_doctor_nom.setStyle("-fx-background-color:#E25E5E;");
             }
@@ -168,15 +168,14 @@ public class FXMLAnyadirDoctorController implements Initializable {
 
     @FXML
     private void cargarImagen(MouseEvent event) {
-        try{
-            FileChooser fc = new FileChooser();
-            File imagen = fc.showOpenDialog(null);
-            if(fc != null){
-                Image img = new Image(imagen.toURI().toString());
-                img_profile.imageProperty().setValue(img);
-            }
-        }catch(Exception e){ System.err.println("UPS");}
+        FileChooser fc = new FileChooser();
+        File imagen = fc.showOpenDialog(null);
+        if(imagen != null){
+            Image img = new Image(imagen.toURI().toString());
+            img_profile.imageProperty().setValue(img);
+        }
     }
+    
     public boolean getCancelar(){
         return pulsadoCancelar;
     }

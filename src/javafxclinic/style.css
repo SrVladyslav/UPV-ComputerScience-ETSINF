@@ -67,3 +67,11 @@ and open the template in the editor.
 .button_eliminar {
     -fx-background-color: white;
 }
+
+.button_cerrar {
+    -fx-background-color: white;
+}
+
+.button_cerrar:hover {
+    -fx-background-color: red;
+}
