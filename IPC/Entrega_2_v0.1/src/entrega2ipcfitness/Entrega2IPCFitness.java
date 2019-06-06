@@ -5,6 +5,7 @@
  */
 package entrega2ipcfitness;
 
+import java.io.File;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,6 +28,7 @@ public class Entrega2IPCFitness extends Application {
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
+        //scene.getStylesheets().add(getClass().getResource("style.css"));
         stage.show();
     }
 
