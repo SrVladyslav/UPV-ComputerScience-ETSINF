@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Entrega2IPCFitness.jar" size="38518" download="eager" />
+    <jar href="Entrega2IPCFitness.jar" size="103023" download="eager" />
     <jar href="lib\AccesoBD.jar" size="12323" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Entrega2IPCFitness" >

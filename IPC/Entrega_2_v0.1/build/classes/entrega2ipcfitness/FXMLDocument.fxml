@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -16,7 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="entrega2ipcfitness.FXMLDocumentController">
+<GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #FCFCFC;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="entrega2ipcfitness.FXMLDocumentController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="250.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,7 +36,56 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <GridPane fx:id="group_panel" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowSpan="4">
+      <GridPane fx:id="graphics_panel" style="-fx-background-color: #FCFCFC;" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowSpan="4">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <LineChart fx:id="grafica" animated="false" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <Label text="GRAFICAS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="select_group" maxWidth="1.7976931348623157E308" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </ChoiceBox>
+            <Spinner fx:id="select_group_spinner" editable="true" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-border-color: black;" stylesheets="@../css/style.css" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+               </GridPane.margin>
+            </Spinner>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sesiones a mostrar" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Grupo" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Text>
+         </children>
+      </GridPane>
+      <GridPane fx:id="group_panel" style="-fx-background-color: #FCFCFC;" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowSpan="4">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -44,8 +98,8 @@
           <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView fx:id="group_list_view" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3" />
-            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <ListView fx:id="group_list_view" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FCFCFC; -fx-border-color: black;" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+            <GridPane style="-fx-background-color: #FCFCFC;" GridPane.columnIndex="2" GridPane.rowIndex="3">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -54,14 +108,14 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="add_group" mnemonicParsing="false" onAction="#group_actions" text="AÑADIR" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="add_group" mnemonicParsing="false" onAction="#group_actions" styleClass="normal_button" stylesheets="@../css/style.css" text="AÑADIR" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
-            <GridPane fx:id="add_mod_group_panel" style="-fx-background-color: white;" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <GridPane fx:id="add_mod_group_panel" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-background-radius: 40px; -fx-border-color: black; -fx-border-radius: 40px; -fx-border-width: 2px;" styleClass="menu_panel" stylesheets="@../css/style.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="145.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="171.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="5.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="20.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
@@ -78,23 +132,29 @@
                         <Insets left="10.0" right="10.0" />
                      </GridPane.margin>
                   </Text>
-                  <TextField fx:id="field_group_code" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <TextField fx:id="field_group_code" maxWidth="1.7976931348623157E308" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </TextField>
                   <Line endX="150.0" startX="-150.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-                  <TextArea fx:id="text_field_group_description" prefHeight="200.0" prefWidth="200.0" promptText="DESCRIPCIÓN DEL GRUPO..." GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER">
+                  <TextArea fx:id="text_field_group_description" prefHeight="200.0" prefWidth="200.0" promptText="DESCRIPCIÓN DEL GRUPO..." style="-fx-background-color: white;" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>
                   </TextArea>
-                  <Button fx:id="save_group" mnemonicParsing="false" onAction="#group_actions" text="GUARDAR" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-                  <Text fx:id="error_cod" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" />
-                  <Text fx:id="error_cod1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="TOP" />
+                  <Button fx:id="save_group" mnemonicParsing="false" onAction="#group_actions" styleClass="normal_button" stylesheets="@../css/style.css" text="GUARDAR" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <Text fx:id="error_cod" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Text>
+                  <Text fx:id="error_cod1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="TOP">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Text>
                </children>
                <GridPane.margin>
-                  <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </GridPane.margin>
             </GridPane>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GRUPOS" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
@@ -104,7 +164,7 @@
             </Text>
          </children>
       </GridPane>
-      <GridPane fx:id="main_panel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" GridPane.columnSpan="5" GridPane.rowSpan="4">
+      <GridPane fx:id="main_panel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #FCFCFC;" visible="false" GridPane.columnSpan="5" GridPane.rowSpan="4">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -119,17 +179,24 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane fx:id="clock_panel" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <GridPane fx:id="clock_panel" style="-fx-background-color: #FCFCFC;" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="2">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text fx:id="label_clock" strokeType="OUTSIDE" strokeWidth="0.0" text="88:88" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Text fx:id="label_clock" strokeType="OUTSIDE" strokeWidth="0.0" text="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font size="250.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="error_main_text" fill="#e40000" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleccione un grupo y/o una sesión..." visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="20.0" />
                      </font>
                   </Text>
                </children>
@@ -185,12 +252,12 @@
                         <Font size="66.0" />
                      </font>
                   </Text>
-                  <Label fx:id="label_round" text="1/5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Label fx:id="label_round" text="-/-" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
                         <Font size="66.0" />
                      </font>
                   </Label>
-                  <Label fx:id="label_step" text="Sentadillas" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <Label fx:id="label_step" text="-" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font size="66.0" />
                      </font>
@@ -200,7 +267,7 @@
                         <Font size="66.0" />
                      </font>
                   </Text>
-                  <Label fx:id="label_exercice" text="L1/5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Label fx:id="label_exercice" text="-/-" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font size="66.0" />
                      </font>
@@ -209,22 +276,22 @@
             </GridPane>
             <GridPane GridPane.columnIndex="4">
               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="86.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="144.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo:" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Text>
                   <Label fx:id="type_label" text="A" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
-                        <Font size="30.0" />
+                        <Font size="20.0" />
                      </font>
                   </Label>
                </children>
@@ -245,12 +312,12 @@
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <ComboBox fx:id="combo_choice_group" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Elegir grupo" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                  <ComboBox fx:id="combo_choice_group" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Elegir grupo" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
                   </ComboBox>
-                  <ComboBox fx:id="combo_choice_sesion" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Elegir sesión" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                  <ComboBox fx:id="combo_choice_sesion" maxWidth="1.7976931348623157E308" prefWidth="150.0" promptText="Elegir sesión" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
                      <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>
@@ -262,7 +329,7 @@
             </GridPane>
          </children>
       </GridPane>
-      <GridPane fx:id="menu_panel" style="-fx-background-radius: 40;" GridPane.rowSpan="3">
+      <GridPane fx:id="menu_panel" style="-fx-background-radius: 40;" GridPane.rowSpan="4">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -274,7 +341,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="group_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-background-color: gray; -fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 40 40 0 0; -fx-background-radius: 40 40 0 0;" text="Grupo" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <Button fx:id="group_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 0 0 0 0; -fx-background-radius: 0 0 0 0;" styleClass="menu_panel" stylesheets="@../css/style.css" text="Grupo" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -282,7 +349,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="sesion_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-background-color: gray; -fx-border-width: 1px; -fx-border-color: black;" text="Sesión" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <Button fx:id="sesion_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-border-width: 1px; -fx-border-color: black;" styleClass="menu_panel" stylesheets="@../css/style.css" text="Sesión" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -290,7 +357,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="graphic_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-background-color: gray; -fx-border-width: 1px; -fx-border-color: black;" text="Gráficas" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <Button fx:id="graphic_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-border-width: 1px; -fx-border-color: black;" styleClass="menu_panel" stylesheets="@../css/style.css" text="Gráficas" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -298,7 +365,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="exit_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-background-color: gray; -fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 0 0 40 40; -fx-background-radius: 0 0 40 40;" text="Salir" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <Button fx:id="exit_button" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-border-width: 1px; -fx-border-color: black; -fx-border-radius: 0 0 40 40; -fx-background-radius: 0 0 40 40;" styleClass="menu_panel" stylesheets="@../css/style.css" text="Salir" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -306,7 +373,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <ImageView fitHeight="96.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <ImageView fx:id="group_img" fitHeight="96.0" fitWidth="92.0" onMousePressed="#goGroup" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                <image>
                   <Image url="@../img/icons8-grupos-de-usuarios-64.png" />
                </image>
@@ -314,7 +381,7 @@
                   <Insets />
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="82.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <ImageView fitHeight="82.0" fitWidth="90.0" onMousePressed="#goSesion" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                <image>
                   <Image url="@../img/icons8-hoy-50.png" />
                </image>
@@ -322,7 +389,7 @@
                   <Insets />
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <ImageView fitHeight="80.0" fitWidth="85.0" onMousePressed="#goGraficas" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                <image>
                   <Image url="@../img/icons8-en-alza-24.png" />
                </image>
@@ -330,7 +397,7 @@
                   <Insets />
                </GridPane.margin>
             </ImageView>
-            <ImageView fitHeight="78.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <ImageView fitHeight="78.0" fitWidth="92.0" onMousePressed="#exit" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                <image>
                   <Image url="@../img/icons8-salida-50.png" />
                </image>
@@ -338,21 +405,22 @@
                   <Insets />
                </GridPane.margin>
             </ImageView>
-            <Button fx:id="home_menu" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" text="Button" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-               <graphic>
-                  <ImageView fitHeight="150.0" fitWidth="150.0" onMousePressed="#showMenu" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../img/reloh.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
+            <Button fx:id="home_menu" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#menuAction" style="-fx-border-color: black; -fx-border-width: 1px; -fx-border-radius: 40 40 0 0; -fx-background-radius: 40 40 0 0;" styleClass="menu_panel" stylesheets="@../css/style.css" text="Cronometro" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font size="30.0" />
+               </font>
             </Button>
+            <ImageView fitHeight="90.0" fitWidth="90.0" onMousePressed="#showMenu" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <image>
+                  <Image url="@../img/reloh.png" />
+               </image>
+            </ImageView>
          </children>
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </GridPane>
-      <GridPane fx:id="sesion_panel" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowSpan="4">
+      <GridPane fx:id="sesion_panel" style="-fx-background-color: #FCFCFC;" visible="false" GridPane.columnIndex="1" GridPane.columnSpan="4" GridPane.rowSpan="4">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -365,13 +433,13 @@
             <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <ListView fx:id="sesion_list_view" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3" />
+            <ListView fx:id="sesion_list_view" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FCFCFC; -fx-border-color: black;" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.rowSpan="3" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SESIONES" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="50.0" />
                </font>
             </Text>
-            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.rowSpan="2">
+            <GridPane maxWidth="1.7976931348623157E308" style="-fx-background-radius: 40px; -fx-border-radius: 40px;" stylesheets="@../css/style.css" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="2" GridPane.valignment="CENTER">
               <rowConstraints>
                 <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -380,10 +448,10 @@
                   <ColumnConstraints />
                </columnConstraints>
                <children>
-                  <GridPane fx:id="add_mod_group_panel1" style="-fx-background-color: white;" GridPane.rowSpan="2">
+                  <GridPane fx:id="add_mod_group_panel1" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: white; -fx-background-radius: 40px; -fx-border-radius: 40px; -fx-border-color: black; -fx-border-width: 2px;" styleClass="menu_panel" stylesheets="@../css/style.css" GridPane.halignment="CENTER" GridPane.rowSpan="2" GridPane.valignment="CENTER">
                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="145.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="171.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="145.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="171.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="20.0" prefWidth="20.0" />
                      </columnConstraints>
                      <rowConstraints>
@@ -407,7 +475,7 @@
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Line endX="150.0" startX="-150.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+                        <Line endX="150.0" startX="-150.0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CALENTAMIENTO:" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <font>
                               <Font size="14.0" />
@@ -456,44 +524,67 @@
                               <Insets left="10.0" right="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Line endX="150.0" startX="-150.0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" />
-                        <TextField fx:id="field_sesion_warm_up" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                        <Line endX="150.0" startX="-150.0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM" />
+                        <TextField fx:id="field_sesion_code" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="field_sesion_number_exercice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                        <TextField fx:id="field_sesion_warm_up" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="field_sesion_time_exercice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                        <TextField fx:id="field_sesion_number_exercice" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="field_sesion_rest_exercice" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                        <TextField fx:id="field_sesion_time_exercice" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="field_sesion_number_circuits" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                        <TextField fx:id="field_sesion_rest_exercice" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="field_sesion_rest_circuit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                        <TextField fx:id="field_sesion_number_circuits" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                         </TextField>
-                        <Button fx:id="save_sesion" mnemonicParsing="false" onAction="#sesion_actions" text="GUARDAR" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
-                        <Text fx:id="error_calentamiento1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Text fx:id="error_ejercicios1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                        <Text fx:id="error_t_ejercicios1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                        <Text fx:id="error_des_ejercicio1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                        <Text fx:id="error_num_circuito1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                        <Text fx:id="error_des_circuito1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+                        <TextField fx:id="field_sesion_rest_circuit" styleClass="choice_box_style" stylesheets="@../css/style.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </TextField>
+                        <Button fx:id="save_sesion" mnemonicParsing="false" onAction="#sesion_actions" styleClass="normal_button" stylesheets="@../css/style.css" text="GUARDAR" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER" />
+                        <Text fx:id="error_calentamiento1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text fx:id="error_ejercicios1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text fx:id="error_t_ejercicios1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text fx:id="error_des_ejercicio1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text fx:id="error_num_circuito1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text fx:id="error_des_circuito1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="7">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CÓDIGO:" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <font>
                               <Font size="14.0" />
@@ -502,15 +593,21 @@
                               <Insets />
                            </GridPane.margin>
                         </Text>
-                        <Text fx:id="error_codigo1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <TextField fx:id="field_sesion_code" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                           <GridPane.margin>
-                              <Insets left="10.0" />
-                           </GridPane.margin>
-                        </TextField>
+                        <Text fx:id="error_codigo1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text fill="#c90000" strokeType="OUTSIDE" strokeWidth="0.0" text="*Todos los tiempos van en segundos" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Text>
                      </children>
                   </GridPane>
                </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
             </GridPane>
          </children>
       </GridPane>

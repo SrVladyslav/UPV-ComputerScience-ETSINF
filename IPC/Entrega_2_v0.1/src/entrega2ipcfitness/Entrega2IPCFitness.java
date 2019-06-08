@@ -28,7 +28,7 @@ public class Entrega2IPCFitness extends Application {
         stage.setResizable(false);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
-        //scene.getStylesheets().add(getClass().getResource("style.css"));
+        scene.getStylesheets().add(File.separator + "src"+File.separator+"css"+File.separator+"style.css");
         stage.show();
     }
 
