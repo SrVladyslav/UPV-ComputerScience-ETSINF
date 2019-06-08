@@ -367,6 +367,11 @@ public class FXMLDocumentController implements Initializable {
                         horaInicio = System.currentTimeMillis();
                         haFinalizado = false;
                     }
+                    //changing opacity
+                    play_button.setOpacity(0.6);
+                    pause_button.setOpacity(1);
+                    reboot_button.setOpacity(1);
+                    
                     tiempoLocalIni = LocalDateTime.now();
                     System.out.println("Play" + ch_sesion_a.toString());
                     CronometroEjecutandose = true;
@@ -380,6 +385,10 @@ public class FXMLDocumentController implements Initializable {
             }else if(button.equals("pause_button")){
                 if(CronometroEjecutandose){
                     CronometroEjecutandose = false;
+                    //changing opacity
+                    play_button.setOpacity(1);
+                    pause_button.setOpacity(0.6);
+                    reboot_button.setOpacity(1);
                     System.out.println("Pause");
                     task.cancel();
                 }
@@ -387,6 +396,10 @@ public class FXMLDocumentController implements Initializable {
                 if(CronometroEjecutandose){
                     CronometroEjecutandose = false;
                     task.cancel();
+                    //changing opacity
+                    play_button.setOpacity(1);
+                    pause_button.setOpacity(1);
+                    reboot_button.setOpacity(0.6);
                     //resetting vars
                     tCalentamientoActual = 1;
                     nEjercicios = 1;
@@ -398,6 +411,13 @@ public class FXMLDocumentController implements Initializable {
 
                 }
             }
+        }else {
+            new Thread(()->{
+                System.out.println("Ojito");
+                error_main_text.setVisible(true);
+                try{Thread.sleep(5000);}catch(Exception e ){System.out.println("Durmiendo??");}
+                error_main_text.setVisible(false);
+            }).start();
         }
     }
     
@@ -748,7 +768,7 @@ public class FXMLDocumentController implements Initializable {
                     dEjerciciosActual = 1;
 
                 }
-                nEjercicios = 1;
+                //nEjercicios = 1;
                 Platform.runLater(() -> {
                     playSong(finish);
                     label_step.setText("Descanso C");
@@ -759,6 +779,7 @@ public class FXMLDocumentController implements Initializable {
                     Thread.sleep(1000);
                     label_clock.setText(""+m);
                 }
+                nEjercicios = 1;
                 Platform.runLater(() -> {
                     if(nCircuitos< actual.getNum_circuitos()){
                         label_round.setText(nCircuitos + "/" + actual.getNum_circuitos());
@@ -792,6 +813,9 @@ public class FXMLDocumentController implements Initializable {
                     dEjerciciosActual = 1;
                     nCircuitos = 1;
                     dCircuito = 1;
+                    play_button.setOpacity(1);
+                    pause_button.setOpacity(0.6);
+                    reboot_button.setOpacity(0.6);
                 }
             });
             task.cancel(); 

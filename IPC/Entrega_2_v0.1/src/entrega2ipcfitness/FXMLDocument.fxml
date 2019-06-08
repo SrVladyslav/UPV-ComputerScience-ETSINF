@@ -211,12 +211,12 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <ImageView fx:id="reboot_button" fitHeight="150.0" fitWidth="200.0" onMousePressed="#controlTime" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <ImageView fx:id="reboot_button" fitHeight="150.0" fitWidth="200.0" onMousePressed="#controlTime" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@../img/video-player-stop-button.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="pause_button" fitHeight="150.0" fitWidth="200.0" onMousePressed="#controlTime" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <ImageView fx:id="pause_button" fitHeight="150.0" fitWidth="200.0" onMousePressed="#controlTime" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <image>
                         <Image url="@../img/music-player-pause-lines.png" />
                      </image>
