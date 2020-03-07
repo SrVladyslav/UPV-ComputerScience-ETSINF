@@ -16,7 +16,7 @@ import sys
 ########################################################################
 '''
 Que es una frase?:
-las frases vienen delimitadas por un punto, una coma, punto y como, do retornos de carro "\n\n", una vez tiene es
+las frases vienen delimitadas por un punto, punto y coma, dos retornos de carro "\n\n", una vez tiene es
 la frase se pasara a minuscula, los simbolos que no sean alfanumericos. cada nuo de esos tokens son los que serán añadidos, 
 añadira un dolar al principio y al final para saber a donde indexar cada frase etc.
 
@@ -95,13 +95,6 @@ class Monkey():
 
                 encontrado = False
                 # Actualizo las stats internas del dicho termino      
-                '''for j in range(len(self.index['bi'][token[i]])):
-                    for term,freq in self.index['bi'][token[i]].items():
-                        # Compruebo si exite el siguiente y actualizo su frequencia
-                        if term.strip() == token[i+1].strip() and not encontrado:
-                            self.index['bi'][token[i]][term] = freq + 1
-                            encontrado = True
-                            break'''
                 for term,freq in self.index['bi'][token[i]].items():
                     # Compruebo si exite el siguiente y actualizo su frequencia
                     if term.strip() == token[i+1].strip() and not encontrado:
@@ -116,8 +109,6 @@ class Monkey():
         if tri:
             self.sort_index(self.index['tri'])
         
-        '''for i in sorted(self.index['bi']):
-            print(i, ': ',self.index['bi'][i])'''
 
     def load_index(self, filename):
         with open(filename, "rb") as fh:
