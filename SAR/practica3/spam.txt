@@ -1,0 +1,11 @@
+Egg and Bacon;
+Egg, sausage and Bacon;
+Egg and Spam;
+Spam Egg Sausage and Spam;
+Egg, Bacon and Spam;
+Egg, Bacon, sausage and Spam;
+Spam, Bacon, sausage and Spam;
+Spam, Egg, Spam, Spam, Bacon and Spam;
+Spam, Spam, Spam, Egg and Spam;
+Spam, Spam, Spam, Spam, Spam, Spam, Spam, baked beans, Spam, Spam, Spam and Spam;
+Lobster Thermidor aux crevettes with a Mornay sauce, garnished with truffle pate, brandy and a fried egg on top and Spam
