@@ -1,7 +1,7 @@
 # 3.- Mono Library
 
 import pickle
-import random
+import random as rd
 import re
 import sys
 
@@ -142,12 +142,56 @@ class Monkey():
                     print("%s\t=>\t%d\t=>\t%s" % (word, wl[0], ' '.join(["%s:%s" % (x[1], x[0]) for x in wl[1]])), file=fh)
 
 
+    def seleccionar(self, lista):
+        """
+        Este método devuelve el elemento de la lista que es elegido 
+        mediante una ponderación obtenida con un algoritmo genético.
+
+
+        :param 
+            lista: lista de tuplas de elementos entre los cuales elegir de tipo (aparicion, elemento)
+
+        :return: Elemento elegido
+        """
+        # Obtengo las apariciones totales y relativas
+        apariciones, lista = [a for a,j in lista], [j for a,j in lista]        
+        p_total = float(sum(apariciones))
+
+        p_relativo = [w/p_total for w in apariciones]
+        # Probabilidades para cada elemento
+        probabilidades = [sum(p_relativo[:i+1]) for i in range(len(p_relativo))]
+
+        slot = rd.random()
+        for (i, elemento) in enumerate([j for j in lista]):
+            if slot <= probabilidades[i]:
+                break
+
+        return elemento
+
+
     def generate_sentences(self, n=10):
         #############
         # COMPLETAR #
         #############
         
-        rrrrerpass
+        # GENERACIÓN DE FRASES
+        # ================================================================
+        PALMAX = 25
+
+        # Empiezo por $ para eguir con las parabras
+        elemento = self.seleccionar(self.index['bi']['$'][1])
+
+        # Sigo buscando
+        for lin in range(n):
+            texto = ''
+            for i in range(PALMAX): 
+                elemento = self.seleccionar(self.index['bi'][elemento][1])
+                if elemento is not '$':
+                    texto += ' '+ elemento
+            print(texto)
+
+
+
 
 
 if __name__ == "__main__":
