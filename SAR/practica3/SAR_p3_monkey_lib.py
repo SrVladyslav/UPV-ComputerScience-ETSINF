@@ -45,7 +45,41 @@ class Monkey():
         #############
         # COMPLETAR #
         #############
-        pass
+        token = sentence.split()
+        # Recorro el token y su siguiente vecino
+        for i in range(len(token) - 1):
+            # Compruebo si existe el termino, creandolo en caso contrario
+            if self.index['bi'].get(token[i]) == None:
+                self.index['bi'][token[i]] = {}
+
+            encontrado = False
+            # Actualizo las stats internas del dicho termino      
+            for term,freq in self.index['bi'][token[i]].items():
+                # Compruebo si exite el siguiente y actualizo su frequencia
+                if term.strip() == token[i+1].strip() and not encontrado:
+                    self.index['bi'][token[i]][term] = freq + 1
+                    encontrado = True
+                    break
+            if not encontrado:
+                self.index['bi'][token[i]][token[i+1]] = 1
+        # Recorro el token y su siguiente vecino
+        if tri:
+            for i in range(len(token) - 2):
+                # Compruebo si existe el termino, creandolo en caso contrario
+                if self.index['tri'].get((token[i],token[i + 1])) == None:
+                    self.index['tri'][(token[i],token[i + 1])] = {}
+
+                encontrado = False
+                # Actualizo las stats internas del dicho termino      
+                for term,freq in self.index['tri'][(token[i],token[i + 1])].items():
+                    # Compruebo si exite el siguiente y actualizo su frequencia
+                    if term.strip() == token[i+2].strip() and not encontrado:
+                        self.index['tri'][(token[i],token[i + 1])][term] = freq + 1
+                        encontrado = True
+                        break
+                if not encontrado:
+                    self.index['tri'][(token[i],token[i + 1])][token[i+2]] = 1
+       
 
     def sort_index(self, d):
         for k in d:
@@ -70,7 +104,7 @@ class Monkey():
         texto = []
 
         # Creo en archivo entero
-        f = open(filename,"r").readlines()
+        f = open(filename,"r",encoding="utf8").readlines()
 
         # Paso a string para usar el regex y lo paso a minusculas
         f = ' '.join(f).lower()
@@ -86,23 +120,7 @@ class Monkey():
         # ================================================================
         # Recorro las frases y relleno el diccionario con ellas con bi gramas
         for t in texto:
-            token = t.split()
-            # Recorro el token y su siguiente vecino
-            for i in range(len(token) - 1):
-                # Compruebo si existe el termino, creandolo en caso contrario
-                if self.index['bi'].get(token[i]) == None:
-                    self.index['bi'][token[i]] = {}
-
-                encontrado = False
-                # Actualizo las stats internas del dicho termino      
-                for term,freq in self.index['bi'][token[i]].items():
-                    # Compruebo si exite el siguiente y actualizo su frequencia
-                    if term.strip() == token[i+1].strip() and not encontrado:
-                        self.index['bi'][token[i]][term] = freq + 1
-                        encontrado = True
-                        break
-                if not encontrado:
-                    self.index['bi'][token[i]][token[i+1]] = 1                      
+            self.index_sentence(sentence = t, tri= tri)            
 
         
         self.sort_index(self.index['bi'])
@@ -178,21 +196,45 @@ class Monkey():
         # ================================================================
         PALMAX = 25
 
-        # Empiezo por $ para eguir con las parabras
-        elemento = self.seleccionar(self.index['bi']['$'][1])
+        if self.index.get("tri"):
+            # Empiezo por $ para eguir con las parabras
+            print('TRI>')
 
-        # Sigo buscando
-        for lin in range(n):
-            texto = ''
-            for i in range(PALMAX): 
-                elemento = self.seleccionar(self.index['bi'][elemento][1])
-                if elemento is not '$':
-                    texto += ' '+ elemento
-            print(texto)
+            #print(self.index['tri'])
+            for i, j in self.index['tri']:
+                break            
+            elemento = self.seleccionar(self.index['tri'][('$',j)][1])
+            #print(elemento)
+            # Sigo buscando
+            for lin in range(n):
+                texto = ''
+                for i in range(PALMAX):
+                    ele1 = self.seleccionar(self.index['tri'][(j,elemento)][1])
+                    j = elemento
+                    elemento = ele1
+                    if ele1 is not '$':
+                        texto += ' '+ ele1
+                    else:
+                        for i, j in self.index['tri']:
+                            break 
+                        elemento = self.seleccionar(self.index['tri'][('$',j)][1])
+                        break
+                print(texto)
+        else:
+            print('BI>')
+            # Empiezo por $ para eguir con las parabras
+            elemento = self.seleccionar(self.index['bi']['$'][1])
 
-
-
-
+            # Sigo buscando
+            for lin in range(n):
+                texto = ''
+                for i in range(PALMAX): 
+                    elemento = self.seleccionar(self.index['bi'][elemento][1])
+                    if elemento is not '$':
+                        texto += ' '+ elemento
+                    else:
+                        break
+                print(texto)
 
 if __name__ == "__main__":
     print("Este fichero es una librería, no se puede ejecutar directamente")
