@@ -6,6 +6,8 @@ import re
 import sys
 
 ## Nombres: 
+#   Vicente Fructuoso Chofré
+#   Vladyslav Mazurkevych
 
 ########################################################################
 ########################################################################
@@ -14,24 +16,7 @@ import sys
 ###                                                                  ###
 ########################################################################
 ########################################################################
-'''
-Que es una frase?:
-las frases vienen delimitadas por un punto, punto y coma, dos retornos de carro "\n\n", una vez tiene es
-la frase se pasara a minuscula, los simbolos que no sean alfanumericos. cada nuo de esos tokens son los que serán añadidos, 
-añadira un dolar al principio y al final para saber a donde indexar cada frase etc.
 
-Egg and Bacon
-$egg and bacon$
-
-$ egg: 1
-egg > and: 1
-and > bacon:1
-
-E ir añadiendo asi las palabras.
-
-para cada palabra tengo una lista para cuantas veces la vi, y despues al final una lista 
-
-'''
 
 
 class Monkey():
@@ -104,7 +89,11 @@ class Monkey():
         texto = []
 
         # Creo en archivo entero
-        f = open(filename,"r",encoding="utf8").readlines()
+        try:
+            f = open(filename,"r",encoding="utf8").readlines()
+        except:
+            print('Error al abrir el fichero, revise si existe...')
+            return
 
         # Paso a string para usar el regex y lo paso a minusculas
         f = ' '.join(f).lower()
@@ -129,14 +118,21 @@ class Monkey():
         
 
     def load_index(self, filename):
-        with open(filename, "rb") as fh:
-            self.index = pickle.load(fh)
+        try:
+            with open(filename, "rb") as fh:
+                self.index = pickle.load(fh)
+        except:
+            print('Error al cargar el indice...')
+            exit(0)
 
 
     def save_index(self, filename):
-        with open(filename, "wb") as fh:
-            pickle.dump(self.index, fh)
-
+        try:
+            with open(filename, "wb") as fh:
+                pickle.dump(self.index, fh)
+        except:
+            print('Error al guardar el indice...')
+            exit(0)
 
     def save_info(self, filename):
         with open(filename, "w") as fh:
@@ -197,10 +193,6 @@ class Monkey():
         PALMAX = 25
 
         if self.index.get("tri"):
-            # Empiezo por $ para eguir con las parabras
-            print('TRI>')
-
-            #print(self.index['tri'])
             for i, j in self.index['tri']:
                 break            
             elemento = self.seleccionar(self.index['tri'][('$',j)][1])
@@ -221,7 +213,6 @@ class Monkey():
                         break
                 print(texto)
         else:
-            print('BI>')
             # Empiezo por $ para eguir con las parabras
             elemento = self.seleccionar(self.index['bi']['$'][1])
 
