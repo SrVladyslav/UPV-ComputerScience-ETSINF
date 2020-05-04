@@ -1,0 +1,11 @@
+#!/bin/bash
+# borrar_fichero
+
+if test -f $1
+then
+ rm $1
+ echo Se ha borrado el fichero $1
+else
+ echo El fichero buscado no existe
+fi
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ListViewEjemplo1.jnlp">
+  <information>
+    <title>ListViewEjemplo1</title>
+    <vendor>jsanchez</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="ListViewEjemplo1.jar" size="10564" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="ListViewEjemplo1" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="aplicacion.ListViewEjemplo1"  name="ListViewEjemplo1" />
+  <update check="always"/>
+</jnlp>
