@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MeasuringLinearSearch()
+comment0.text=No\ hay\ objetos\ de\ esta\ clase.
+comment1.params=size
+comment1.target=int[]\ createArray(int)
+comment1.text=\ Crea\ un\ array\ de\ int\ de\ talla\ size,\ \n\ \ con\ valores\ crecientes\ desde\ 0\ hasta\ size-1.\n\ \ @param\ size\ int,\ la\ talla.\n\ \ @result\ int[],\ el\ array.\n
+comment2.params=
+comment2.target=void\ measuringLinearSearch()
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4

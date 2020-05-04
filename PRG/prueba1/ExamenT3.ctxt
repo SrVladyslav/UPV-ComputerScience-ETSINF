@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=s\ c
+comment0.target=java.lang.String\ removeChar(java.lang.String,\ char)
+comment0.text=\n\ Devuelve\ el\ String\ que\ resulta\ de\ eliminar\ todas\ \n\ las\ apariciones\ del\ char\ c\ en\ el\ String\ s.\n
+numComments=1

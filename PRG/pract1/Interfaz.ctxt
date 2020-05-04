@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Interfaz()
+comment1.params=
+comment1.target=void\ configurarVentana()
+comment2.params=
+comment2.target=void\ inicializarComponentes()
+comment3.params=e
+comment3.target=void\ actionPerformed(java.awt.event.ActionEvent)
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

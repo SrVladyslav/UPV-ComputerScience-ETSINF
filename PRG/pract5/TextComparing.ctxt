@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=args
+comment0.target=void\ main(java.lang.String[])
+comment0.text=\n\ Argumentos\:\n\ 1)\ "-u"\ o\ "-i"\ para\ union\ o\ interseccion\ respectivamente.\n\ 2)\ Fichero\ de\ texto\ 1\ de\ entrada.\n\ 3)\ Fichero\ de\ texto\ 2\ de\ entrada.\n\ \n\ Resultado\ en\ la\ salida\ estandar.\n
+comment1.params=nF1\ nF2\ option
+comment1.target=void\ compare(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\n\ Escribe\ en\ la\ salida\ estandar\ el\ resultado\ de\ comparar\n\ los\ conjuntos\ de\ palabras\ de\ los\ ficheros\ de\ texto\ cuyos\n\ nombres\ estan\ en\ nF1\ y\ nF2.\ Si\ la\ opcion\ es\ "-i",\ escribe\ \n\ la\ interseccion\ de\ ambos\ conjuntos,\ si\ es\ "-u"\ escribe\ la\ union.\n\ @param\ nF1\ String,\ nombre\ del\ primer\ fichero.\n\ @param\ nF2\ String,\ nombre\ del\ segundo\ fichero.\n\ @param\ option\ String\n
+comment2.params=s
+comment2.target=SetString\ setReading(java.util.Scanner)
+comment2.text=\n\ Devuelve\ el\ SetString\ de\ las\ palabras\ leidas\ de\ s\ \n\ segun\ los\ separadores\ dados,\ por\ defecto,\ en\ DELIMITERS.\n\ @param\ s\ Scanner.\n\ @return\ el\ conjunto\ de\ palabras\ leidas\ de\ s.\n
+numComments=3

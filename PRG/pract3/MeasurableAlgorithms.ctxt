@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MeasurableAlgorithms()
+comment0.text=No\ hay\ objetos\ de\ esta\ clase.
+comment1.params=a\ e
+comment1.target=int\ linearSearch(int[],\ int)
+comment1.text=\ Linear\ Search\n\ \ @param\ a\ int[],\ array\ of\ int\n\ \ @param\ e\ int,\ value\ to\ look\ for\n\ \ @return\ int,\ position\ of\ e\ in\ a\ or\ -1\ if\ e\ is\ not\ in\ a\n
+comment2.params=a
+comment2.target=void\ selectionSort(int[])
+comment2.text=\ Selection\ Sort\n\ \ @param\ a\ int[],\ array\ of\ int\n
+comment3.params=a
+comment3.target=void\ insertionSort(int[])
+comment3.text=\ InsertionSort\n\ \ @param\ a\ int[],\ array\ of\ int\n
+comment4.params=a\ left\ right
+comment4.target=void\ mergeSort(int[],\ int,\ int)
+comment4.text=\ mergeSort\n\ \ @param\ a\ int[],\ array\ of\ int\n\ \ @param\ left\ \ int,\ leftmost\ position\ of\ the\ slice\ \n\ \ of\ the\ array\ to\ to\ be\ sorted\n\ \ @param\ right\ int,\ rightmost\ position\ of\ the\ slice\n\ \ of\ the\ array\ to\ to\ be\ sorted\ \n
+comment5.params=a\ left\ half\ right
+comment5.target=void\ naturalMerge(int[],\ int,\ int,\ int)
+comment5.text=\ Natural\ Merge\ to\ be\ used\ in\ Merge\ Sort\n\ \ @param\ a\ int[],\ array\ of\ int\n\ \ @param\ left\ \ int,\ leftmost\ position\ of\ the\ slice\ \n\ \ of\ the\ array\ to\ to\ be\ sorted\n\ \ @param\ right\ int,\ rightmost\ position\ of\ the\ slice\ \n\ \ of\ the\ array\ to\ to\ be\ sorted\n\ \ @param\ half\ \ int,\ central\ position\ of\ the\ slice\ \n\ \ of\ the\ array\ to\ to\ be\ sorted\ \n
+numComments=6

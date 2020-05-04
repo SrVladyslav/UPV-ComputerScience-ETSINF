@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=SetStringT1()
+comment0.text=\n\ Crea\ un\ conjunto\ vacio.\n
+comment1.params=s
+comment1.target=void\ add(java.lang.String)
+comment1.text=\n\ Inserta\ s\ en\ el\ conjunto.\n\ Si\ s\ ya\ pertenece\ al\ conjunto,\ el\ conjunto\ no\ cambia.\n\ @param\ s\ String.\ Elemento\ que\ se\ inserta\ en\ el\ conjunto.\n
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment2.text=\n\ Devuelve\ el\ listado\ de\ los\ Strings\ en\ el\ conjunto,\n\ en\ orden\ lexicogr\u00E1fico\ y\ separados\ por\ saltos\ de\ linea.\n\ Si\ el\ conjunto\ es\ vacio,\ devuelve\ ""\ (la\ String\ vacia).\n\ @return\ el\ listado\ de\ los\ elementos\ del\ conjunto.\n
+comment3.params=prefix
+comment3.target=java.lang.String\ removePrefix(java.lang.String)
+comment3.text=\n\ Elimina\ y\ devuelve\ la\ primera\ palabra\ del\ conjunto\ que\ empiece\ por\n\ prefix.\ Si\ no\ hay\ ninguna,\ el\ conjunto\ no\ cambia\ y\ devuelve\ null.\n\ @param\ prefix\ String.\n\ @return\ String,\ palabra\ eliminada\ o\ null\ si\ no\ existe.\n
+numComments=4

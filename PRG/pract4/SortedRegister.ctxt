@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=dataYear
+comment0.target=SortedRegister(int)
+comment0.text=\ Crea\ un\ SortedRegister\ para\ el\ a\u00F1o\ dataYear.\n\ \ @param\ int\ dataYear\n
+comment1.params=s
+comment1.target=void\ add(java.util.Scanner)
+comment1.text=\ Clasifica\ ordenadamente\ los\ datos\ leidos\ del\ Scanner\ s.\n\ \ Precondicion\:\ En\ cada\ linea\ de\ s\ los\ datos\ deben\ tener\ la\ forma\n\ \ \ \ \ \ \ \ dia\ mes\ cantidad\n\ \ en\ donde\ dia\ y\ mes\ deben\ ser\ enteros\ correspondientes\ a\ una\ fecha\ \n\ \ valida,\ y\ cantidad\ debe\ ser\ un\ entero\ >\ 0.\n\ \ La\ cantidad\ leida\ se\ acumula\ en\ el\ registro\ que\ se\ lleva\ para\ el\ \n\ \ dia\ del\ mes.\n\ \ Si\ alguna\ linea\ no\ cumple\ el\ formato,\ o\ contiene\ una\ fecha\ incorrecta,\n\ \ el\ metodo\ termina\ lanzando\ una\ excepcion.\n\ \ @param\ s\ Scanner\ fuente\ de\ los\ datos\n\ \ @throws\ InputMismatchException\ si\ se\ intenta\ leer\ un\ dato\ no\ entero.\ \n\ \ @throws\ ArrayIndexOutOfBoundsException\ si\ se\ lee\ de\ s\ alguna\ fecha\ incorrecta.\n
+comment2.params=p
+comment2.target=void\ save(java.io.PrintWriter)
+comment2.text=\ Los\ datos\ registrados\ >\ 0\ se\ escriben\ en\ p,\ linea\ a\ linea\n\ \ con\ el\ formato\n\ \ \ \ \ \ \ \ dia\ \ mes\ \ cantidad\n\ \ ordenados\ cronologicamente.\n\ \ @param\ p\ Printwriter\ destino\ de\ los\ datos\ ordenados\n
+comment3.params=s\ err
+comment3.target=void\ add(java.util.Scanner,\ java.io.PrintWriter)
+comment3.text=\ Clasifica\ ordenadamente\ los\ datos\ leidos\ del\ Scanner\ s.\ Se\ filtran\n\ \ los\ datos\ que\ tuvieran\ algun\ defecto\ de\ formato,\ emitiendo\ un\ informe\n\ \ de\ errores.\ \n\ \ Precondicion\:\ El\ formato\ de\ linea\ reconocible\ es\n\ \ \ \ \ \ \ \ dia\ mes\ cantidad\n\ \ en\ donde\ dia\ y\ mes\ deben\ ser\ enteros\ correspondientes\ a\ una\ fecha\ \n\ \ valida,\ y\ cantidad\ debe\ ser\ un\ entero\ >\ 0.\n\ \ La\ cantidad\ leida\ se\ acumula\ en\ el\ registro\ que\ se\ lleva\ para\ \n\ \ el\ dia\ del\ mes.\n\ \ En\ err\ se\ escriben\ las\ lineas\ defectuosas,\ indicando\ el\ n\u00FAmero\ de\ \n\ \ linea.\ \ \n\ \ @param\ s\ Scanner\ fuente\ de\ los\ datos\n\ \ @param\ err\ PrintWriter\ destino\ del\ informe\ de\ errores\n
+comment4.params=year
+comment4.target=boolean\ isLeap(int)
+comment4.text=\ Comprueba\ si\ year\ es\ bisiesto.\n\ \ @param\ year\ int\n\ \ @return\ true\ sii\ es\ bisiesto.\n
+comment5.params=year\ in\ out\ err
+comment5.target=void\ testReportedSort(int,\ java.util.Scanner,\ java.io.PrintWriter,\ java.io.PrintWriter)
+numComments=6

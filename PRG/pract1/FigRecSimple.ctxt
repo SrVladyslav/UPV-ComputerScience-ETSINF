@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=FigRecSimple()
+comment1.params=ordIni
+comment1.target=void\ figRec(int)
+comment1.text=\n\ Dibuja\ una\ serie\ de\ cuadrados\ incluidos\ unos\ en\n\ otros.\ El\ numero\ de\ cuadrados\ viene\ dado\ por\ el\n\ numero\ ordIni\ \n\ PRECONDICION\:\ ordIni\ >\=\ 0\n\ @param\ ordIni.\ Numero\ de\ cuadrados\ que\ se\ dibujan.\n
+comment2.params=g\ ord\ l
+comment2.target=void\ figRec(graph2D.Graph2D,\ int,\ double)
+comment2.text=\n\ Dibuja\ un\ cuadrado\ de\ orden\ ord\ y\ lado\ l.\n\ @param\ g\:\ el\ espacio\ Graph2D\ donde\ se\ realiza\ el\ dibujo.\n\ @param\ ord\:\ orden\ (o\ numero)\ del\ cuadrado.\n\ @param\ l\:\ longitud\ del\ lado\ del\ cuadrado.\n\ PRECONDICION\:\ ord\ >\=\ 0\ \n
+numComments=3

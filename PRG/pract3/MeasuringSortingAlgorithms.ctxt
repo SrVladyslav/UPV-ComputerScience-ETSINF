@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MeasuringSortingAlgorithms()
+comment0.text=No\ hay\ objetos\ de\ esta\ clase.
+comment1.params=t
+comment1.target=int[]\ createArray(int)
+comment1.text=\ Crea\ un\ array\ de\ int\ de\ talla\ t\ con\ valores\ a\ 0.\n\ \ @param\ t\ int,\ la\ talla.\n\ \ @result\ int[],\ el\ array\ generado.\n
+comment2.params=a
+comment2.target=void\ fillRandomArray(int[])
+comment2.text=\ Rellena\ los\ elementos\ de\ un\ array\ a\ de\ int\ \n\ \ con\ valores\ aleatorios\ entre\ 0\ y\ a.length-1.\n\ \ @param\ a\ int[],\ el\ array.\n
+comment3.params=a
+comment3.target=void\ fillArraySortedInAscendingOrder(int[])
+comment3.text=\ Rellena\ los\ elementos\ de\ un\ array\ a\ de\ forma\ creciente,\n\ \ con\ valores\ desde\ 0\ hasta\ a.length-1.\n\ \ @param\ a\ int[],\ el\ array.\n
+comment4.params=a
+comment4.target=void\ fillArraySortedInDescendingOrder(int[])
+comment4.text=\ Rellena\ los\ elementos\ de\ un\ array\ a\ de\ forma\ decreciente,\n\ \ con\ valores\ desde\ a.length-1\ hasta\ 0.\n\ \ @param\ a\ int[],\ el\ array.\n
+comment5.params=
+comment5.target=void\ measuringSelectionSort()
+comment6.params=
+comment6.target=void\ measuringInsertionSort()
+comment7.params=
+comment7.target=void\ measuringMergeSort()
+comment8.params=
+comment8.target=void\ help()
+comment9.params=args
+comment9.target=void\ main(java.lang.String[])
+numComments=10

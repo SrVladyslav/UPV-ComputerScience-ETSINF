@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Exercise1T1()
+comment0.text=There\ are\ not\ objects\ of\ this\ class.
+comment1.params=sc
+comment1.target=int\ count(java.util.Scanner)
+comment1.text=\ Devuelve\ cuantos\ numeros\ reales\ se\ han\ leido\ del\ fichero\ sc.\n\ \ Considerando\ que\ el\ fichero\ contiene\ un\ dato\ en\ cada\ linea\ y\ \n\ \ que\ estos\ datos\ pueden\ tener\ errores\ de\ formato\ que\ el\ metodo\ \n\ \ nextDouble()\ detecta\ y\ avisa\ lanzando\ InputMismatchException,\ \n\ \ se\ pide\:\n\ \ Modifica\ el\ siguiente\ codigo\ para\ que,\ cuando\ lo\ que\ se\ ha\ leido\ \n\ \ de\ sc\ no\ se\ ajuste\ al\ formato\ de\ double\ esperado,\ se\ muestre\ un\ \n\ \ mensaje\ por\ pantalla\ indicando\ el\ error\ pero\ se\ continue\ leyendo\ \n\ \ y\ contando\ valores\ hasta\ el\ final\ del\ fichero.\n
+numComments=2
