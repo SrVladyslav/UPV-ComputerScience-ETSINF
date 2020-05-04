@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.params=municipios\ aristas
+comment0.target=GrafoRedMunicipiosEx(aplicaciones.redElectrica.Municipio[],\ librerias.estructurasDeDatos.grafos.Arista[])
+comment0.text=Constructor
+comment1.params=
+comment1.target=int\ numVertices()
+comment1.text=Consultor\ del\ n\u00FAmero\ de\ v\u00E9rtices
+comment2.params=
+comment2.target=int\ numAristas()
+comment2.text=Consultor\ del\ n\u00FAmero\ de\ aristas
+comment3.params=m
+comment3.target=int\ getVertice(aplicaciones.redElectrica.Municipio)
+comment3.text=Consultor\ de\ v\u00E9rtice\ dado\ el\ municipio
+comment4.params=v
+comment4.target=aplicaciones.redElectrica.Municipio\ getMunicipio(int)
+comment4.text=Consultor\ del\ municipio\ dado\ el\ v\u00E9rtice
+comment5.params=a\ b
+comment5.target=double\ aristaEnMST(aplicaciones.redElectrica.Municipio,\ aplicaciones.redElectrica.Municipio)
+numComments=6
