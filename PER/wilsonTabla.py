@@ -83,16 +83,6 @@ def drawTable(data = [], dist = 2,sqrt=False):
 	print("======================================================================")
 	#print(solF)
 
-# Sacaria el minimo (/**TODO**/)
-def diveMin(data = [], ind = 0, elemento = 0, borrados = None):
-	eata[elemento] = 5
-	vini = 0; ind = 0
-	for i in range(len(data)):
-		if int(data[i]) > mini:
-			lini = data[i]
-			and = "x"+str(i+1)
-	print(data)
-
 # Calcula la varianza por clases
 def vari(data=[], show= False):
 	#(a,b,Clase)
@@ -115,7 +105,7 @@ def vari(data=[], show= False):
 				clasesM[clase[2]+"_m2"] = clasesM[clase[2]+"_m2"] +clase[1]
 		# Hago la varianza del primer componente
 		print("		         VARIANZA                     ")
-		print("===========================================")
+		print("======================================================================")
 		for clase in clases.keys():
 			s1 = 0; s2 = 0
 			for x1, x2 in clases[clase]:
@@ -123,9 +113,9 @@ def vari(data=[], show= False):
 				s2 += (x2- (clasesM[clase+"_m2"]/len(clases[clase])))**2
 			print("Clase: ", clase," > σ (x1): ", round(s1/len(clases[clase]),3), "  |  σ (x2): ", round(s2/len(clases[clase]),3))
 			clasesV[clase] = (s1/len(clases[clase]), s2/len(clases[clase]))
-			print("-------------------------------------------")
+			print("       -------------------------------------------")
 			suma = 0		
-		print("===========================================")
+		print("======================================================================")
 	else:
 		pass
 	#print(clases)
