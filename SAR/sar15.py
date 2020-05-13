@@ -1,3 +1,4 @@
+# @AUTHOR: VLADYSLAV MAZURKEVYCH
 import numpy as np
 # GENERAL OPTIONS
 ATTEMPS = 10000
@@ -54,20 +55,31 @@ HASH_SIZE = 7
 HASH_TYPE = 1
 
 # ======= SIMPLE Hash Table ==============
-CHAINING_HASH = True
+CHAINING_HASH = False
 
 # ======= ADDRESSING Hash Table ==============
-ADDRESSING_HASH = True
-
-# ======= Lineal Hashing==============
-LINEAL_HASH = True
-
+ADDRESSING_HASH = False
 
 # Define the funciton to use in hash with funtion
 # @param: x : value
 # @param: size: size of MOD 
 def f(x, size = HASH_SIZE):
+	# x MOD (B -1) + 1
 	return (x % (size -1)) + 1
+
+# ======= PERMUTEM INDEX==============
+PERMUTERM = True
+WORD_PERMUTERM = "hello" 
+QUERY_PERMUTERM = "hel*o"
+
+# ======= K-GRAMS INDEX =============
+
+
+
+
+
+
+
 
 
 
@@ -218,9 +230,41 @@ def linealHash(l = [], size = 1):
 	for i in l:
 		pass
 
+# Helping Methods
+def rotate(word):
+	return word[1:] + word[0]
 
+def search(word= '', permuterm= []):
+	word = word[:-1]
+	l = len(word)
+	for p in permuterm:
+		if word == p[:l]:
+			return p
+	return "Doesn't exist!"
+'''
+	Prints the output for all combinations of the permuterm
+	@param: word to permut
+	@param query to search
+'''
+def permuterm(WORD_PERMUTERM = 'hello$', QUERY_PERMUTERM = 'hel*o'):
+	word = WORD_PERMUTERM+"$"
+	permuterm = [word]
+	print("\n================== PERMUTERM INDEX======================================")
+	# Permuterm Index different rotations
+	for i in range(len(word)-1):
+		word = rotate(word)
+		permuterm.append(word)
+	print("> Permuterm: ",permuterm) 
 
-
+	# Query searching
+	query = QUERY_PERMUTERM +"$"
+	rotations = [query]
+	while query[-1] is not '*':
+		query = rotate(query)
+		rotations.append(query)
+	print("\n> Rotations for QUERY: ",rotations)
+	print("\n> Solution for QUERY: ", query, " -> Searching in Permuterm: ", search(query, permuterm))
+	print("========================================================================")
 
 
 # Ecxecution
@@ -238,6 +282,7 @@ if TEMA2:
 		stemmer(TEXT, PORTER_RULE)
 	if CHAINING_HASH: chainingHash(LIST2HASH, HASH_SIZE)
 	if ADDRESSING_HASH: addressingHash(LIST2HASH, HASH_SIZE, HASH_TYPE)
+	if PERMUTERM: permuterm(WORD_PERMUTERM, QUERY_PERMUTERM)
 
 '''
 if TEMA2:
