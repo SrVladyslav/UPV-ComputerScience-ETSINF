@@ -1,0 +1,74 @@
+### ESTRUCTURA DE COMPUTADORES (ETS Eng. Inf.)
+##  
+## marzo de 2014
+##
+## PRÁCTICA 13: SINCRONIZACIÓN POR INTERRUPCIONES
+##
+## Código inicial del manejador
+
+
+##############################################################
+##              ÁREA DE DATOS DEL MANEJADOR                 ##
+##############################################################
+
+			.kdata
+var1:	.word 0xFFFFFFFF
+contexto: .word 1,2,3,4
+
+#############################################################
+##                  CÓDIGO DEL MANEJADOR                   ##
+#############################################################
+
+          .ktext 0x80000080
+
+    ## Preserva el contexto del programa de usuario
+    ## (nada de momento)
+    .set noat 
+    add $t1, $t0, $at
+    .set at
+    la $t0, contexto
+    sw $t1, 0($t0)
+
+    ## Identifica y trata excepciones
+    ## (nada de momento)
+    li $v0,11
+    li $a0, '*'
+    syscall
+
+    ## Restaura el contexto
+    ## (nada de momento)
+
+    ## Restaura el modo usuario y vuelve al programa
+    ## (falta algo)
+  mfc0 $k0, $14
+	rfe
+	jr $k0 
+
+#############################################################
+##                    CÓDIGO DE INICIO                     ##
+#############################################################
+
+          .text
+          .globl __start 
+__start: 
+    ## Código de inicio
+    ## (nada de momento)
+    la $t0, 0xFFFF0000
+    li $t1, 0x02
+    sb $t1,0($t0)
+    #desenmascarar int 0 y modo usuario
+    mfc0 $t0, $12
+    ori $t0, $t0, 0x0103
+    mtc0 $t0, $12
+
+    #codigo de cancelacion de la interrupcion
+    li $t0, 0xFFFF0000
+    lw $a0,4($t0)
+
+    ## Salto al programa de usuario
+	jal main
+
+    ## Código de terminación
+	li $v0, 10
+	syscall	 # Función exit
+

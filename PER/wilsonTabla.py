@@ -5,18 +5,21 @@ import numpy as np
 # (x1, x2, "nombre clase")
 data = [
 	#(,,""),
-	(1,1,"A"),
-	(3,1,"B"),
+	(0,4,"A"),
 	(1,3,"A"),
-	(4,2,"B"),
-	(3,4,"A"),
+	(2,3,"B"),
+	(-1,2,"A"),
+	(1,2,"B"),
+	(2,2,"B"),
 	(3,2,"B"),
-	(5,4,"B"),
+	(1,1,"A"),
+	(2,1,"B"),
+	(0,0,"A"),
 
 
 ]
 # Hacerlo con L2: L2 = 2,sin L2: L1 = 1
-DISTANCIA_L2 = 2
+DISTANCIA_L2 = 1
 
 # Hacerlo usando raiz cuadrada: RAIZ = True, sin raiz: RAIZ = False 
 RAIZ = False

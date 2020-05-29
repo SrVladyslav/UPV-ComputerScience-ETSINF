@@ -1,0 +1,105 @@
+### ESTRUCTURA DE COMPUTADORES (ETS Eng. Inf.)
+##  
+## marzo de 2014
+##
+## PRÁCTICA 13: SINCRONIZACIÓN POR INTERRUPCIONES
+##
+## Código inicial del manejador
+
+
+##############################################################
+##              ÁREA DE DATOS DEL MANEJADOR                 ##
+##############################################################
+
+			.kdata
+var1:	.word 0xFFFFFFFF
+contexto: .word 1,2,3,4
+
+#############################################################
+##                  CÓDIGO DEL MANEJADOR                   ##
+#############################################################
+
+          .ktext 0x80000080
+
+    ## Preserva el contexto del programa de usuario
+    ## (nada de momento)
+    la $k1, contexto
+
+    .set noat 
+    sw $at,0($k1)
+    .set at
+    la $t0, contexto
+    sw $t0, 0($k1)
+    sw $t0, 4($k1)
+    sw $a0, 8($k1)
+    sw $v0, 12($k1)
+
+
+    ## Identifica y trata excepciones
+    mfc0 $k0, $13
+		andi $t0, $k0, 0x3C
+    bnez $t0, retexc
+
+    #IP
+    mfc0 $k0, $13
+		andi $t0, $k0, 0x01400
+		beqz $t0, retexc
+
+int0:
+    li $t0, 0xFFFF0000
+	  lw $a0,4($t0)
+    ##imprime el valor
+    li $v0,11
+    syscall
+int2:
+		li $t0, 0xFFFF0010
+		sb $zero, 0($t0)
+		b retexc
+
+    ## Restaura el contexto
+retexc: 
+    .set noat 
+    	lw $at, 0($k1)
+    .set at
+    lw $t0, 4($k1)
+    lw $a0, 8($k1)
+    lw $v0, 12($k1)
+
+    ## Restaura el modo usuario y vuelve al programa
+    ## (falta algo)
+	  mfc0 $k0, $14
+		rfe
+		jr $k0 
+
+#############################################################
+##                    CÓDIGO DE INICIO                     ##
+#############################################################
+
+          .text
+          .globl __start 
+__start: 
+    ## Código de inicio
+    la $t0, 0xFFFF0010
+    li $t1, 0x01
+    sb $t1, 0($t0)
+
+    #desenmascarar int2 y modo usuario
+    mfc0 $t0, $12
+    ori $t0, $t0, 0x0403
+    mtc0 $t0, $12
+    ## (nada de momento)
+    la $t0, 0xFFFF0000
+    li $t1, 0x02
+    sb $t1,0($t0)
+    #desenmascarar int 0 y modo usuario
+    mfc0 $t0, $12
+    ori $t0, $t0, 0x0103
+    mtc0 $t0, $12
+
+    ## Salto al programa de usuario
+		jal main
+
+    ## Código de terminación
+		li $v0, 10
+		syscall	 # Función exit
+
