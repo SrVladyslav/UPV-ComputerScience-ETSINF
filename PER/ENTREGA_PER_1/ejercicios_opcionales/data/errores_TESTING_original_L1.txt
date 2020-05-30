@@ -1,0 +1,8 @@
+# Created by Octave 5.1.0, Fri Apr 17 20:34:25 2020 GMT <unknown@LAPTOP-98VUH47R>
+# name: errores
+# type: matrix
+# rows: 1
+# columns: 2
+ 3.4000000000000004 3.6900000000000004
+
+
