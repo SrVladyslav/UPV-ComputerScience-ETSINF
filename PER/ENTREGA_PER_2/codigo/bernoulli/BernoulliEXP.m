@@ -44,6 +44,6 @@ function [edv] = BernoulliEXP(X, xl, epsilons)
   endfor
 
   % Imprimo la solucion
-  save Entrega2/data/errores/bernoulli_EXP_3_ert.txt ert;
+  save Entrega2/data/errores/bernoulli_EXP_3_edv.txt edv;
   
 endfunction

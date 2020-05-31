@@ -26,6 +26,7 @@
 function [etr, edv] = Bernoulli(X, xl, Y, yl, epsilon)
   % Aplicamos la sigmoide
   X = sigmoid(X); 
+  Y = sigmoid(Y); 
  
   %X(X == 0) = realmin;
   % ====================================================
