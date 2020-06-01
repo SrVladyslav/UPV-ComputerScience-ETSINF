@@ -39,6 +39,10 @@ class BDITropa(BDIFieldOp, BDITroop):
                 '''
                 return self.soldiers_count
             
+            @actions.add_function(".distMedia", (tuple,tuple, ))
+            def _distMedia(p1, p2):
+                return ((p1[0] + p2[0])/2, 0, (p1[2]+ p2[2])/2)
+            
             @actions.add_function(".delF",(tuple,))
             def _delF(t):
                 '''
@@ -104,7 +108,7 @@ class BDITropa(BDIFieldOp, BDITroop):
                     Returns the agent ID of the nearest to flag
                 ''' 
                 def dist(p1, p2):
-                    return ((p1[0]-p2[0])**2+(p1[1]-p2[1])**2)**0.5
+                    return ((p1[0]-p2[0])**2+(p1[2]-p2[2])**2)**0.5
                 mi = flag
                 d = 200
                 for i in range(len(pos)):
@@ -123,7 +127,6 @@ class BDITropa(BDIFieldOp, BDITroop):
                     Also we know that the view range of agents are 50v.p, so the remaining
                     distance will be 24 v.p between agents, if not, this distance will
                     decrease.
-                    One soldier must always be at the middle.
                 '''
                 fX, fY, fZ = flagPOS
 

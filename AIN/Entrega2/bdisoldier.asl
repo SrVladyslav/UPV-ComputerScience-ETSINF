@@ -1,7 +1,7 @@
 //TEAM_AXIS
-+flag (F): team(100)
++flag ([X,Y,Z]): team(100)
   <-
-  .goto(F);
+  .goto([X-10,Y,Z-10]);
   .print("Ready to die!").
   /*.focusedAT(FA);
   .print("Focused: ",FA);
@@ -21,7 +21,7 @@
 
 
 //==================================================================================================================================================0
-//TEAM ALIED
+//TEAM DEFENSOR
 +flag (F):team(200)
   <-
   /*.print("Ready to WIN!");
@@ -35,7 +35,8 @@
   .print("Fiesta Fiesta ole!");
   +alCentro;
   +objetivo(F);
-  .goto(F).
+  .goto(F);
+  +check.
 
 +coronel(C): team(200) 
   <-
@@ -50,41 +51,55 @@
   .print("Entendido, moviendome al punto ", Punto, "!").
 
 /** Target reached **/
-+target_reached(F): punto
++target_reached(F): punto 
   <-
   -punto;
   !apatrullandoLaCiudad;
   .print("Vigilando la ciudad!").
 
 /** Los que no son torre, patrullan alrededor**/
-+target_reached(T):team(200)& alCentro & not laTorre & coronelli(C) & flag(F)
++target_reached(T): team(200) & alCentro & not laTorre & not modoWAR
   <-
   -alCentro;
   !apatrullar;
   .print("Apatrullando la ciudad!").
 
-+!apatrullar: not amenaza & team(200) & flag(F) & position(P)
++!apatrullar: team(200) & flag(F) & position(P) & not modoWAR
  <-
  -+seguir;
  .next(P, F, D);
  .goto(D);
  .print("Voy a ", D).
 
-+target_reached(T):team(200) & seguir
++!apatrullar: amenaza & team(200) & not modoWAR
   <-
-  .print("todo ok");
+  .print("F").
+
+
++target_reached(T):team(200) & seguir & not modoWAR
+  <-
   +comprobar;
   !apatrullar.
+
++target_reached(T):team(200) & modoWAR
+  <-
+  -amenaza(_);
+  -eliminar;
+  .print("FIN").
 
 /** fin patrulla aleatoria**/
 
 
 /** Patrulla mientras no vea un objetivo **/
-+!apatrullandoLaCiudad:team(200) & not amenaza
++!apatrullandoLaCiudad:team(200) & not modoWAR
   <-
   +comprobar;
   .wait(2100);
   !apatrullandoLaCiudad.
+
++!apatrullandoLaCiudad:team(200) & modoWAR
+  <-
+  .print("Apatrullando la ciudad  F").
 
 +laTorre <- .print("UPS").
 
@@ -105,33 +120,105 @@
 
 
 /** Enemigos, ataques, y esas cosas **/
-+enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]):team(200) & coronelli(C) & myBackups(B)
++enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]):team(200) & not modoWAR & coronelli(C)
  <-
- +amenaza;
+ +modoWAR;
+ .goto([X,Y,Z]);
+ -+tg(ID);
  .look_at([X,Y,Z]);
  .shoot(5,[X,Y,Z]);
- .send(C, tell, sos([X,Y,Z], HEALTH));
- .send(B, tell, sos([X,Y,Z], HEALTH)).
+ +comprobar;
+ .send(C, tell, veteAlCentro([X,Y,Z]));
+ .print("Entrando en combate!").
+ /*.send(B, tell, sos([X,Y,Z], HEALTH)).*/
 
-+sos([X,Y,Z], HEALTH)[source(S)]
+
+
+/** =========================================================MODO GUERRA =====================================================================***/
+
++enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]):team(200) & modoWAR
  <-
- +amenaza;
+  .look_at([X,Y,Z]);
+  .shoot(1, [X,Y,Z]).
+
++enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]):team(200) & modoWAR & position(P)
+  <-
+  .distance([X,Y,Z], P, D);
+  if(D > 30){
+    .goto([X,Y,Z]);
+  };
+  if(D < 20){
+    .look_at([X,Y,Z]);
+    .shoot(5, [X,Y,Z]);
+  }.
+
+/** COMPROBAR vida y municion **/
++check: team(200) & not modoWAR & ammo(A) & health(H) & not gallina & position(P)
+  <-
+  .wait(2000);
+  -check;
+  .print("Checking");
+  if(H < 40 | A < 20){
+    +reuniendose;
+    .print("Saliendo por patas...");
+    ?flag(F);
+    .goto(F);
+    ?coronelli(C);
+    .send(C, tell, help(P));
+  };
+  +check.
+
++check: not position(P) <- -+check.
+
++reunion(P)[source(S)]: team(200)
+  <-
+  -+reuniendose;
+  +gallina;
+  .goto(P);
+  .print("OK, voy para alla").
+
++target_reached(T):reuniendose
+  <-
+  -reuniendose;
+  -gallina;
+  +paquetes;
+  +comprobar;
+  .print("Estoy aqui").
+
++packs_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]): paquetes
+  <-
+  -paquetes;
+  +aporpaquete;
+  .goto([X,Y,Z]);
+  .wait(2000);
+  .look_at([X,Y,Z]);
+  .print("Vamos por paquete").
+
++target_reached(T): aporpaquete
+  <-
+  -aporpaquete;
+  .print("Paquete cogido");
+  +comprobar.
+
+
++friends_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]):team(200) & modoWAR & soldados(SS)
+  <-
+  .nth(ID, SS,S);
+  .send(S, tell, ayudame([X,Y,Z]));
+  .print("AYUDADME!!").
+
++ayudame([X,Y,Z])[source(S)]
+ <-
  .look_at([X,Y,Z]);
- .goto([X,Y,Z]).
+ .goto([X,Y,Z]);
+ -+modoWAR;
+ .print("VOY!").
 
-+eliminarA(A)[source(S)]: team(200)
-  <-
-  .look_at(A);
-  .goto(A).
 
-+friends_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]):team(200) & amenaza & flag(F)
- <-
- .distance([X,Y,Z], F, D);
- if(D < 35) {
-    .send(ID, achieve, quitate);
- }
- .turn(-ANGLE).
 
-+quitate[source(S)]:flag(F)
-  <-
-  .goto(F).
+
+
+
+
+/** ===================================================================== **/
++ponerModoWar <- -+modoWAR; -ponerModoWar; .print("Entrando en combate!!!").

@@ -24,6 +24,10 @@ class BDITropa(BDIFieldOp, BDITroop):
             def _distance(p1, p2):
                 return ((p1[0]-p2[0])**2+(p1[2]-p2[2])**2)**0.5
 
+            @actions.add_function(".distMedia", (tuple,tuple, ))
+            def _distMedia(p1, p2):
+                return ((p1[0] + p2[0])/2, 0, (p1[2]+ p2[2])/2)
+
             @actions.add_function(".flagTaken", ())
             def _flagTaken():
                 '''
