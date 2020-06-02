@@ -1,0 +1,49 @@
+{
+    "host": "gtirouter.dsic.upv.es",
+    "manager": "manager_vlama",
+    "manager_password": "secret",
+    "service": "service_vlama",
+    "service_password": "secret",
+    "axis": [
+		{
+            "rank": "soldados.BDITropa",
+            "name": "axis_vlama",
+            "password": "secret",
+            "amount": 8,
+            "asl": "bdisoldier.asl"
+        },
+        {
+            "rank": "BDIMedic",
+            "name": "medic_axis_vlama",
+            "password": "secret",
+            "asl": "bdimedic.asl"
+        },
+         {
+            "rank": "lider.BDITropa",
+            "name": "fieldop_axis_vlama",
+            "password": "secret",
+            "asl": "bdifieldop.asl"
+        }
+    ],
+     "allied": [
+		{
+            "rank": "soldados.BDITropa",
+            "name": "allied_vlama",
+            "password": "secret",
+            "amount": 8,
+            "asl": "bdisoldier.asl"
+        },
+        {
+            "rank": "BDIMedic",
+            "name": "medic_allied_vlama",
+            "password": "secret",
+            "asl": "bdimedic.asl"
+        },
+         {
+            "rank": "lider.BDITropa",
+            "name": "fieldop_allied_vlama",
+            "password": "secret",
+            "asl": "bdifieldop.asl"
+        }
+   ]
+  }
