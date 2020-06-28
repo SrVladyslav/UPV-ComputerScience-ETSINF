@@ -12,6 +12,10 @@
 - [```IPC```](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/IPC): 
 > Una asignatura facil si te gusta programar, en el repositorio podrás encontrar las dos entregas de prácticas, como son casi todas parecidas, pues sea la que sea, el código se puede reusar  ¯\_(ツ)_/¯.
 
+### 3er Curso
+- [```SAR-CO```](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/SAR):
+> Una de las asignaturas más divertidas de la carrera, se usa ```Python```, pero en ella por lo menos pasareis programando un buen rato, y las [entregas son divertidas de hacer también](https://github.com/SrVladyslav/SAR_project), un gusto de asignatura. 
+
 <br><br><br><br>
 
 ## FAQ (っ◔◡◔)っ ♥
