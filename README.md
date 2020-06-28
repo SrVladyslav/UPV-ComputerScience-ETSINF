@@ -26,7 +26,7 @@
 > Depende, pero vayamos por lo general: ```FOE```,```EST```, ```TAL``` ,```FSO```, ```RED```, ```ETC```, y luego va por ramas, en computación suele ser ```CMC```. Son las más temidas, pero es por el temario, así pues, estudiad a diario y no pasará nada malo. <br>
 
 #### Que lenguajes daré en la carrera ?  ʕ•ᴥ•ʔ 
-> Java, Javascript, C, Python, Haskell, Prolog, Clips, entre otros... 
+> Java, Javascript, C, Python, Haskell, Prolog, Clips, Octave/Matlab entre otros... 
 
 #### Las practicas subidas, están bien 100% ?
 > Pues... NO!, Las subi para tenerlas a mano, pero hay algunas cosas que no están bien del todo, así que os pueden servir de ayuda para la inspiración, pero no copieis (╥﹏╥). 
