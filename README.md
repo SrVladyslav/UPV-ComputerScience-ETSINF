@@ -2,11 +2,14 @@
 
 ## ASIGNATURAS ಠ_ಠ
 ### 1er Curso
-- [PRG](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/PRG):
+- ```[PRG](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/PRG)```:
 > Una asignatura muy facil si te gusta la programación y los costes, por lo general a la gente le cuesta, pero es muy divertida. 
 
+- ```FOE```:
+> Un 4.99999 no es un 5.0 (◕‿-)
+
 ### 2o Curso
-- [IPC](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/IPC): 
+- ```[IPC](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/IPC)```: 
 > Una asignatura facil si te gusta programar, en el repositorio podrás encontrar las dos entregas de prácticas, como son casi todas parecidas, pues sea la que sea, el código se puede reusar  ¯\_(ツ)_/¯.
 
 <br><br><br><br>
@@ -19,4 +22,4 @@
 > Pues... NO!, Las subi para tenerlas a mano, pero hay algunas cosas que no están bien del todo, así que os pueden servir de ayuda para la inspiración, pero no copieis (╥﹏╥). 
 
 #### REDES o ETC?
-> Buena pregunta, las dos son anuales, las dos son jodidas, lanzando una moneda se podría resolver supongo, nada, la solución es facil, ```RED``` es entender el Kurose y ```ETC``` es programar y programar :). 
+> Buena pregunta, las dos son anuales, las dos son jodidas, lanzando una moneda se podría resolver supongo, nada, la solución es facil, ```RED``` es entender el Kurose y ```ETC``` es practicar y practicar :). 
