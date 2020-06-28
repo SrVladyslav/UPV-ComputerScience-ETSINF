@@ -9,7 +9,7 @@
 > Un 4.99999 no es un 5.0 (◕‿-)
 
 ### 2o Curso
-- ```[IPC](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/IPC)```: 
+- [```IPC```](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/IPC): 
 > Una asignatura facil si te gusta programar, en el repositorio podrás encontrar las dos entregas de prácticas, como son casi todas parecidas, pues sea la que sea, el código se puede reusar  ¯\_(ツ)_/¯.
 
 <br><br><br><br>
