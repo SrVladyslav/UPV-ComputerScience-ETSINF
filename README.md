@@ -2,7 +2,7 @@
 
 ## ASIGNATURAS ಠ_ಠ
 ### 1er Curso
-- ```[PRG](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/PRG)```:
+- [```PRG```](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/PRG):
 > Una asignatura muy facil si te gusta la programación y los costes, por lo general a la gente le cuesta, pero es muy divertida. 
 
 - ```FOE```:
