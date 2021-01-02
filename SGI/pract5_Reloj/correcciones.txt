@@ -1,0 +1,1 @@
+Lo unico que está mal es que no cumple el punto 6, que no toca por dos pixeles los bordes de la ventana, si no arreglais, teneis un 10 :)

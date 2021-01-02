@@ -7,31 +7,31 @@ Dependencias:
 
 Ejercicio:
 ===========================================================================================================
-Se quiere construir un reloj 3D anal√≥gico. Para ello se usar√° la
-geometr√≠a de la pr√°ctica anterior y cualquier otra que el alumno construya.
+Se quiere construir un reloj 3D analÛgico. Para ello se usar· la
+geometrÌa de la pr·ctica anterior y cualquier otra que el alumno construya.
 El reloj debe marcar la hora local actual de forma reconocible.
 Los requisitos del proyecto son los siguientes:
 <----
-1. T√≠tulo: 'Reloj 3D'			    PDF anterior al 23-Nov
+1. TÌtulo: 'Reloj 3D'			    PDF anterior al 23-Nov
 2. Titulo: 'Reloj analogico'		PDF posterior al 23-Nov
 ----->
-2. Dimensiones del √°rea de dibujo: cualesquiera. El usuario puede variar el tama√±o del √°rea de
-dibujo estir√°ndola con el rat√≥n.
-3. La c√°mara es perspectiva y el punto de vista puede estar situado en cualquier punto fuera de la
-esfera unidad mirando siempre al origen. La vertical de la c√°mara es el eje Y.
+2. Dimensiones del ·rea de dibujo: cualesquiera. El usuario puede variar el tamaÒo del ·rea de
+dibujo estir·ndola con el ratÛn.
+3. La c·mara es perspectiva y el punto de vista puede estar situado en cualquier punto fuera de la
+esfera unidad mirando siempre al origen. La vertical de la c·mara es el eje Y.
 4. Color de fondo: RGB (1.0, 1.0, 1.0)
 5. Todo el reloj debe caber en la esfera unidad
-6. Independientemente de la posici√≥n de la c√°mara y el tama√±o del √°rea de dibujo, la
-transformaci√≥n de la proyecci√≥n debe ser tal que la esfera unidad toque los l√≠mites superior e
-inferior del √°rea de dibujo manteniendo la isometr√≠a. Mismo requisito que en P4.
+6. Independientemente de la posiciÛn de la c·mara y el tamaÒo del ·rea de dibujo, la
+transformaciÛn de la proyecciÛn debe ser tal que la esfera unidad toque los lÌmites superior e
+inferior del ·rea de dibujo manteniendo la isometrÌa. Mismo requisito que en P4.
 7. Al menos deben percibirse los siguientes movimientos o cambios de forma, escala, color,
-orientaci√≥n y/o posici√≥n:
+orientaciÛn y/o posiciÛn:
 a. Un objeto debe moverse continuamente
 b. Un objeto debe cambiar cada segundo
 c. Un objeto debe cambiar cada minuto
 d. Un objeto debe cambiar cada hora
 8. Debe estar activo el z-buffer (visibilidad)
-9. La animaci√≥n debe ser temporalmente coherente, es decir, independiente de la velocidad del
+9. La animaciÛn debe ser temporalmente coherente, es decir, independiente de la velocidad del
 procesador o de la carga del sistema.
 10. Se debe usar doble buffer.
 ===========================================================================================================*/
@@ -42,7 +42,7 @@ procesador o de la carga del sistema.
 #define DIM_Y 400
 #define E_DIM 0.3							// Dimension de los triangulos exteriores
 #define I_DIM 0.2							// Dimension de los triangulos interiores 
-#define FOVY 41								// La inclinaci√≥n de la perspectiva
+#define FOVY 41								// La inclinaciÛn de la perspectiva
 #define PI 3.1415926
 static bool MOSTRAR_ESFERA = true;			// Ponerlo a false si no se quiere mostrarla
 
