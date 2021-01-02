@@ -16,6 +16,12 @@
 - [```SAR-CO```](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/SAR):
 > Una de las asignaturas más divertidas de la carrera, se usa ```Python```, pero en ella por lo menos pasareis programando un buen rato, y las [entregas son divertidas de hacer también](https://github.com/SrVladyslav/SAR_project), un gusto de asignatura. 
 
+### 4to Curso
+- [```SGI-CO```](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/SGI):
+> Una asignatura muy divertida pero requiere algo extra de tiempo para disfrutarla del todo, consta de dos entregas: <br>
+> -[Reloj](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/SGI/pract5_Reloj): se trata de modelar un reloj con C++. <br>
+> -[Videojuego](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/SGI/pract9_Videojuego): se trata de crear un juego al estilo de los grandes clasicos de carreras de los moviles antiguos con C++.
+
 <br><br><br><br>
 
 ## FAQ (っ◔◡◔)っ ♥
