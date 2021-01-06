@@ -26,7 +26,7 @@
 
 ## FAQ (っ◔◡◔)っ ♥
 #### En la carrera se programan videojuegos ?
-> NO! ¯\_(ツ)_/¯
+> NO mucho! ¯\_(ツ)_/¯
 
 #### Que asignaturas son las más difíciles ?
 > Depende, pero vayamos por lo general: ```FOE```,```EST```, ```TAL``` ,```FSO```, ```RED```, ```ETC```, y luego va por ramas, en computación suele ser ```CMC```. Son las más temidas, pero es por el temario, así pues, estudiad a diario y no pasará nada malo. <br>
