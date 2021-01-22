@@ -22,6 +22,11 @@
 > -[Reloj](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/SGI/pract5_Reloj): se trata de modelar un reloj con C++. <br>
 > -[Videojuego](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/SGI/pract9_Videojuego): se trata de crear un juego al estilo de los grandes clasicos de carreras de los moviles antiguos con C++.
 
+- [```APR-CO```](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/APR):
+> La asignatura más divertida de todas sin duda, algo que de verdad uno disfruta: <br>
+> A parte de muchas cosas divertidas en la parte de prácticas como la creacion de redes neuronales etc, hay unnas entregas de ejercicios, los cuales estarán en 
+[esta carpeta](https://github.com/SrVladyslav/UPV-ComputerScience-ETSINF/tree/master/APR). No son un 10 directo, pero aún asi tienen nota buena, puede servir de inspiración.
+
 <br><br><br><br>
 
 ## FAQ (っ◔◡◔)っ ♥
